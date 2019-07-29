@@ -92,6 +92,7 @@
             this.GeneralDataTab.Controls.Add(this.FriendsListBox);
             this.GeneralDataTab.Controls.Add(this.PostsListBox);
             this.GeneralDataTab.Controls.Add(this.MonthCalander);
+            this.GeneralDataTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeneralDataTab.Location = new System.Drawing.Point(4, 25);
             this.GeneralDataTab.Name = "GeneralDataTab";
             this.GeneralDataTab.Padding = new System.Windows.Forms.Padding(3);
@@ -103,9 +104,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(699, 248);
+            this.label3.Location = new System.Drawing.Point(690, 244);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
+            this.label3.Size = new System.Drawing.Size(81, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Date Events";
             // 
@@ -114,44 +115,48 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(379, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
+            this.label2.Size = new System.Drawing.Size(65, 16);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Groups List";
+            this.label2.Text = "Posts List";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(79, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 17);
+            this.label1.Size = new System.Drawing.Size(76, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Friends List";
             // 
             // DateChoseListBox
             // 
+            this.DateChoseListBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateChoseListBox.FormattingEnabled = true;
-            this.DateChoseListBox.ItemHeight = 16;
-            this.DateChoseListBox.Location = new System.Drawing.Point(600, 268);
+            this.DateChoseListBox.ItemHeight = 17;
+            this.DateChoseListBox.Location = new System.Drawing.Point(600, 248);
             this.DateChoseListBox.Name = "DateChoseListBox";
-            this.DateChoseListBox.Size = new System.Drawing.Size(297, 132);
+            this.DateChoseListBox.Size = new System.Drawing.Size(297, 140);
             this.DateChoseListBox.TabIndex = 3;
             // 
             // FriendsListBox
             // 
+            this.FriendsListBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FriendsListBox.FormattingEnabled = true;
-            this.FriendsListBox.ItemHeight = 16;
+            this.FriendsListBox.ItemHeight = 17;
             this.FriendsListBox.Location = new System.Drawing.Point(19, 44);
             this.FriendsListBox.Name = "FriendsListBox";
-            this.FriendsListBox.Size = new System.Drawing.Size(235, 356);
+            this.FriendsListBox.Size = new System.Drawing.Size(235, 344);
             this.FriendsListBox.TabIndex = 2;
+            this.FriendsListBox.SelectedIndexChanged += new System.EventHandler(this.FriendsListBox_SelectedIndexChanged);
             // 
             // PostsListBox
             // 
+            this.PostsListBox.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.PostsListBox.FormattingEnabled = true;
-            this.PostsListBox.ItemHeight = 16;
+            this.PostsListBox.ItemHeight = 17;
             this.PostsListBox.Location = new System.Drawing.Point(266, 44);
             this.PostsListBox.Name = "PostsListBox";
-            this.PostsListBox.Size = new System.Drawing.Size(326, 356);
+            this.PostsListBox.Size = new System.Drawing.Size(326, 344);
             this.PostsListBox.TabIndex = 1;
             this.PostsListBox.SelectedIndexChanged += new System.EventHandler(this.PostsListBox_SelectedIndexChanged);
             // 
@@ -328,8 +333,6 @@
             this.Controls.Add(this.CoverPhotoPictureBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(925, 620);
-            this.MinimumSize = new System.Drawing.Size(925, 620);
             this.Name = "FacebookForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bookface ;)";

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
+using System.IO;
 using FacebookWrapper;
 
 
@@ -21,14 +22,13 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         public FacebookForm()
         {
             InitializeComponent();
-
             m_UserSettings = Settings.LoadSettingsFromFile();
         }
 
         private void FacebookLoginButton_Click(object sender, EventArgs e)
         {
             //Our appid:415704425731459 , 
-            LoginResult loginResult = FacebookService.Login("1450160541956417", "public_profile",
+            m_LoginResult = FacebookService.Login("1450160541956417", "public_profile",
                 "email",
                 "publish_to_groups",
                 "user_birthday",
@@ -47,14 +47,16 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 "user_posts",
                 "user_hometown");
             
-            if (!string.IsNullOrEmpty(loginResult.AccessToken))
+            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                m_LoggedInUser = loginResult.LoggedInUser;
+                m_LoggedInUser = m_LoginResult.LoggedInUser;
+                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
                 updateFormData();
+                this.FacebookLoginButton.Enabled = false;
             }
             else
             {
-                MessageBox.Show(loginResult.ErrorMessage);
+                MessageBox.Show(m_LoginResult.ErrorMessage);
             }
         }
 
@@ -63,7 +65,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             this.ProfilePictureBox.BackgroundImage = m_LoggedInUser.ImageNormal;
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
-            this.RememberMeCheckbox.Checked = true;
+            //this.RememberMeCheckbox.Checked = false;
             addFriendsToListBox();
             addPostsToListBox();
         }
@@ -90,7 +92,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             DateTime currentDate = e.Start;
             string shortCurrentDate = currentDate.ToShortDateString().Remove(0, 5);
 
-            
             if (m_LoggedInUser != null )
             {
                 try
@@ -124,7 +125,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 }
                 catch(Exception exception)
                 {
-                    MessageBox.Show("Oh Oh! Something went wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The information couldn't be retrieved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }
@@ -190,7 +191,48 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             return outputIndex;
         }
-            
+
+        private int getIndexOfUserInFriendList(string i_stringUserName)
+        {
+            int outputIndex = 0;
+
+            foreach (User currentFriend in m_LoggedInUser.Friends)
+            {
+                if (currentFriend.Name.Equals(i_stringUserName))
+                {
+                    break;
+                }
+                outputIndex += 1;
+            }
+
+            return outputIndex;
+        }
+
+        private void FriendsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<User> friendsList = m_LoggedInUser.Friends.ToList<User>();
+            int postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
+            User currentFriend = friendsList[postIndex];
+            Form pictureForm = new Form();
+            PictureBox friendPictureBox = new PictureBox();
+            friendPictureBox.Image = currentFriend.ImageLarge;
+            friendPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right |
+                AnchorStyles.Bottom | AnchorStyles.Left;
+            pictureForm.ShowInTaskbar = false;
+            friendPictureBox.Height = 300;
+            friendPictureBox.Width = 300;
+            friendPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureForm.Height = 310;
+            pictureForm.Width = 310;
+            pictureForm.Text = currentFriend.Name;
+            pictureForm.StartPosition = FormStartPosition.CenterScreen;
+            pictureForm.Controls.Add(friendPictureBox);
+            pictureForm.ShowDialog();
+
+            pictureForm.MinimumSize = new Size(310, 310);
+            pictureForm.MaximumSize = new Size(400, 400);
+        }
+
         protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
@@ -199,6 +241,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
                 m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
+                m_LoggedInUser = m_LoginResult.LoggedInUser;
                 updateFormData();
             }
         }
@@ -207,17 +250,19 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             base.OnFormClosing(e);
 
-            if(this.RememberMeCheckbox.Checked)
+            if (this.RememberMeCheckbox.Checked)
             {
                 m_UserSettings.IsRememberMeChecked = true;
+                m_UserSettings.SaveSettingToFile();
             }
             else
             {
-                m_UserSettings.IsRememberMeChecked = false;
-                m_UserSettings.UserAccessToken = null;
+                if (File.Exists("App Settings.xml"))
+                {
+                    File.Delete("App Settings.xml");
+                }
             }
 
-            m_UserSettings.SaveSettingToFile();
         }
 
     }
