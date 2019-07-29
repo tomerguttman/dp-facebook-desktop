@@ -198,6 +198,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             if (m_UserSettings.IsRememberMeChecked && !string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
             {
                 m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
+                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
                 updateFormData();
             }
         }
@@ -209,7 +210,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             if(this.RememberMeCheckbox.Checked)
             {
                 m_UserSettings.IsRememberMeChecked = true;
-                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
             }
             else
             {

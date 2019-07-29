@@ -24,7 +24,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public void SaveSettingToFile()
         {
-            using (Stream stream = new FileStream(@"C:\Users\ohads\Desktop\appSettings.xml", FileMode.Truncate))
+            using (Stream stream = new FileStream("App Settings.xml", FileMode.CreateNew))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
                 serializer.Serialize(stream, this);
@@ -34,13 +34,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         public static Settings LoadSettingsFromFile()
         {
             Settings settings = new Settings();
-            
-            using (Stream stream = new FileStream(@"C:\Users\ohads\Desktop\appSettings.xml", FileMode.Truncate))
-            {
-                XmlSerializer serializer = new XmlSerializer(typeof(Settings));
-                settings = serializer.Deserialize(stream) as Settings;
-            }
 
+            if (File.Exists("App Settings.xml"))
+            {
+                using (Stream stream = new FileStream("App Settings.xml", FileMode.CreateNew))
+                {
+                    stream.Position = 0;
+                    XmlSerializer serializer = new XmlSerializer(typeof(Settings));
+                    settings = serializer.Deserialize(stream) as Settings;
+                }
+            }
+            
             return settings;
         }
     }
