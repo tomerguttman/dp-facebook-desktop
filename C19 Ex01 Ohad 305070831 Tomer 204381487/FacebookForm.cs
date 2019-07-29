@@ -62,10 +62,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void updateFormData()
         {
-            this.ProfilePictureBox.BackgroundImage = m_LoggedInUser.ImageNormal;
+            this.ProfilePictureBox.Image = m_LoggedInUser.ImageNormal;
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
-            //this.RememberMeCheckbox.Checked = false;
             addFriendsToListBox();
             addPostsToListBox();
         }
@@ -155,6 +154,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             postCommentsListBox.Width = 250;
             commentsForm.Height = 460;
             commentsForm.Width = 260;
+            commentsForm.MinimumSize = new Size(260, 200);
             commentsForm.Text = "Comments";
             commentsForm.StartPosition = FormStartPosition.CenterScreen;
 
@@ -167,8 +167,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 postCommentsListBox.Items.Add("There are no comments on this post.");
             }
-            commentsForm.Controls.Add(postCommentsListBox);
 
+            commentsForm.Controls.Add(postCommentsListBox);
             commentsForm.ShowDialog();
         }
 
@@ -213,24 +213,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             List<User> friendsList = m_LoggedInUser.Friends.ToList<User>();
             int postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
             User currentFriend = friendsList[postIndex];
-            Form pictureForm = new Form();
-            PictureBox friendPictureBox = new PictureBox();
-            friendPictureBox.Image = currentFriend.ImageLarge;
-            friendPictureBox.Anchor = AnchorStyles.Top | AnchorStyles.Right |
-                AnchorStyles.Bottom | AnchorStyles.Left;
-            pictureForm.ShowInTaskbar = false;
-            friendPictureBox.Height = 300;
-            friendPictureBox.Width = 300;
-            friendPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureForm.Height = 310;
-            pictureForm.Width = 310;
-            pictureForm.Text = currentFriend.Name;
-            pictureForm.StartPosition = FormStartPosition.CenterScreen;
-            pictureForm.Controls.Add(friendPictureBox);
-            pictureForm.ShowDialog();
-
-            pictureForm.MinimumSize = new Size(310, 310);
-            pictureForm.MaximumSize = new Size(400, 400);
+            pickedFriendPictureBox.Image = currentFriend.ImageLarge;
         }
 
         protected override void OnShown(EventArgs e)
