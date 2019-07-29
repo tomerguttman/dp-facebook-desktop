@@ -23,7 +23,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void FacebookLoginButton_Click(object sender, EventArgs e)
         {
-            //Our appid:415704425731459
+            //Our appid:415704425731459 , 
             LoginResult loginResult = FacebookService.Login("1450160541956417", "public_profile",
                 "email",
                 "publish_to_groups",
@@ -67,7 +67,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             foreach (Post post in m_LoggedInUser.Posts)
             {
-                PostsListBox.Items.Add(post);
+                PostsListBox.Items.Add(post.Message + " " + post.CreatedTime.Value.ToShortDateString());
             }
         }
 
@@ -132,32 +132,56 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void PostsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //implement a method that finds a specific post from the list of posts! and then prints all the comments!bye.
-            int postIndex;
+            fetchCommentsFromSelectedPost(sender);
+        }
+
+        private void fetchCommentsFromSelectedPost(object sender)
+        {
+            List<Post> userPostList = m_LoggedInUser.Posts.ToList<Post>();
+            int postIndex = getIndexOfPostInPostsList((sender as ListBox).SelectedItem as string);
+            Post currentPost = userPostList[postIndex];
             Form commentsForm = new Form();
             ListBox postCommentsListBox = new ListBox();
-            commentsForm.Controls.Add(postCommentsListBox);
-            commentsForm.Height = 460;
-            commentsForm.Width = 260;
-            postIndex = 3;
-            postCommentsListBox = sender as ListBox;
+            postCommentsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Right |
+                AnchorStyles.Bottom | AnchorStyles.Left;
+            commentsForm.ShowInTaskbar = false;
             postCommentsListBox.Height = 450;
             postCommentsListBox.Width = 250;
-
-
-            
-            List<Post> userPostList = m_LoggedInUser.Posts.ToList<Post>();
-            Post currentPost = userPostList[postIndex];
+            commentsForm.Height = 460;
+            commentsForm.Width = 260;
+            commentsForm.Text = "Comments";
+            commentsForm.StartPosition = FormStartPosition.CenterScreen;
 
             foreach (Comment comment in currentPost.Comments)
             {
                 postCommentsListBox.Items.Add(comment.Message);
             }
+            
+            if(postCommentsListBox.Items.Count == 0 )
+            {
+                postCommentsListBox.Items.Add("There are no comments on this post.");
+            }
+            commentsForm.Controls.Add(postCommentsListBox);
 
             commentsForm.ShowDialog();
+        }
 
-            
-          
+        private int getIndexOfPostInPostsList(string i_stringPost)
+        {
+            int outputIndex = 0;
+            string temporaryString = null;
+            foreach(Post currentPost in m_LoggedInUser.Posts)
+            {
+                temporaryString = currentPost.Message + " " + currentPost.CreatedTime.Value.ToShortDateString();
+                if( temporaryString.Contains(i_stringPost))
+                {
+                    break;
+                }
+
+                outputIndex += 1;
+            }
+
+            return outputIndex;
         }
     }
 }
