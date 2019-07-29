@@ -15,10 +15,14 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
     public partial class FacebookForm : Form
     {
         private User m_LoggedInUser;
+        private Settings m_UserSettings;
+        private LoginResult m_LoginResult;
 
         public FacebookForm()
         {
             InitializeComponent();
+
+            m_UserSettings = Settings.LoadSettingsFromFile();
         }
 
         private void FacebookLoginButton_Click(object sender, EventArgs e)
@@ -59,6 +63,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             this.ProfilePictureBox.BackgroundImage = m_LoggedInUser.ImageNormal;
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
+            this.RememberMeCheckbox.Checked = true;
             addFriendsToListBox();
             addPostsToListBox();
         }
@@ -170,10 +175,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             int outputIndex = 0;
             string temporaryString = null;
-            foreach(Post currentPost in m_LoggedInUser.Posts)
+
+            foreach (Post currentPost in m_LoggedInUser.Posts)
             {
                 temporaryString = currentPost.Message + " " + currentPost.CreatedTime.Value.ToShortDateString();
-                if( temporaryString.Contains(i_stringPost))
+
+                if ( temporaryString.Contains(i_stringPost))
                 {
                     break;
                 }
@@ -183,5 +190,35 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             return outputIndex;
         }
+            
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            if (m_UserSettings.IsRememberMeChecked && !string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
+            {
+                m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
+                updateFormData();
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+
+            if(this.RememberMeCheckbox.Checked)
+            {
+                m_UserSettings.IsRememberMeChecked = true;
+                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
+            }
+            else
+            {
+                m_UserSettings.IsRememberMeChecked = false;
+                m_UserSettings.UserAccessToken = null;
+            }
+
+            m_UserSettings.SaveSettingToFile();
+        }
+
     }
 }
