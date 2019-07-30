@@ -248,5 +248,101 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         }
 
+        private void FetchBestFriendsPhotosButton_Click(object sender, EventArgs e)
+        {
+            tenBestFriendsAlgorithm();
+        }
+
+        private void tenBestFriendsAlgorithm()
+        {
+            Dictionary<string,UserRating> friendsRatingDictionary = InitializeUserRatingList(m_LoggedInUser);
+            calculateFriendsRatingAndUpdate(friendsRatingDictionary);
+            IEnumerable<UserRating> friendsRatingDictionarySorted = friendsRatingDictionary.OrderBy(UserRating => UserRating.Value.Rating) as IEnumerable<UserRating>;
+            friendsRatingDictionarySorted.Reverse<UserRating>();
+
+            updatePicturesInTenBestFriendsTab(friendsRatingDictionarySorted);
+
+
+        }
+
+        private void updatePicturesInTenBestFriendsTab(IEnumerable<UserRating> i_FriendsRatingDictionarySorted)
+        {
+            PictureBox temporaryPictureBox = null;
+            int i = 1;
+
+            foreach(UserRating userRating in i_FriendsRatingDictionarySorted)
+            {
+                temporaryPictureBox = this.Controls.Find(string.Format("UserPictureBox{0}",i),true)[0] as PictureBox;
+                temporaryPictureBox.Image = userRating.User.ImageNormal;
+                i += 1;
+
+                if (i > 10)
+                {
+                    break;
+                }
+            }
+        }
+
+        private void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary)
+        {
+            updateFriendsRatingUsingLikes(i_FriendsRatingDictionary);
+            updateFriendsRatingUsingComments(i_FriendsRatingDictionary);
+        }
+
+        private void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary)
+        {
+            updateUserRatingLikedPosts(io_FriendsRatingDictionary, m_LoggedInUser.WallPosts);
+            updateUserRatingLikedPosts(io_FriendsRatingDictionary, m_LoggedInUser.Posts);
+        }
+
+        private void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary , FacebookObjectCollection<Post> i_Posts)
+        {
+            foreach (Post post in i_Posts)
+            {
+                FacebookObjectCollection<User> LikedByUsers = post.LikedBy;
+
+                foreach (User user in LikedByUsers)
+                {
+                    if(user.Id != m_LoggedInUser.Id)
+                    {
+                        io_FriendsRatingDictionary[user.Id].Rating += 1;
+                    }
+                }
+            }
+        }
+
+        private void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary)
+        {
+            updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, m_LoggedInUser.WallPosts);
+            updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, m_LoggedInUser.Posts);
+        }
+
+        private void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts)
+        {
+            foreach (Post post in i_Posts)
+            {
+                FacebookObjectCollection<Comment> commentedByUsers = post.Comments;
+
+                foreach (Comment comment in commentedByUsers)
+                {
+                    if (comment.From.Id != m_LoggedInUser.Id)
+                    {
+                        io_FriendsRatingDictionary[comment.From.Id].Rating += 1;
+                    }
+                }
+            }
+        }
+
+        private Dictionary<string, UserRating> InitializeUserRatingList(User i_LoggedInUser)
+        {
+            Dictionary<string, UserRating> o_InitializedUserRatingDictionary = new Dictionary<string, UserRating>();
+
+            foreach (User user in i_LoggedInUser.Friends)
+            {
+                o_InitializedUserRatingDictionary.Add(user.Id, new UserRating(user));
+            }
+
+            return o_InitializedUserRatingDictionary;
+        }
     }
 }

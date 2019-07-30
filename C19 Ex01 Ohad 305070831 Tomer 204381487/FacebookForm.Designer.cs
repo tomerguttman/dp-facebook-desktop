@@ -51,11 +51,11 @@
             this.UserPictureBox3 = new System.Windows.Forms.PictureBox();
             this.UserPictureBox2 = new System.Windows.Forms.PictureBox();
             this.UserPictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CompareTab = new System.Windows.Forms.TabPage();
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.CoverPhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.FacebookLoginButton = new System.Windows.Forms.Button();
             this.RememberMeCheckbox = new System.Windows.Forms.CheckBox();
-            this.CompareTab = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.GeneralDataTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickedFriendPictureBox)).BeginInit();
@@ -226,9 +226,11 @@
             this.FetchBestFriendsPhotosButton.TabIndex = 12;
             this.FetchBestFriendsPhotosButton.Text = "Fetch 10 best friends pictures";
             this.FetchBestFriendsPhotosButton.UseVisualStyleBackColor = true;
+            this.FetchBestFriendsPhotosButton.Click += new System.EventHandler(this.FetchBestFriendsPhotosButton_Click);
             // 
             // UserPictureBox10
             // 
+            this.UserPictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox10.Location = new System.Drawing.Point(639, 206);
             this.UserPictureBox10.Name = "UserPictureBox10";
             this.UserPictureBox10.Size = new System.Drawing.Size(125, 144);
@@ -238,6 +240,7 @@
             // 
             // UserPictureBox9
             // 
+            this.UserPictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox9.Location = new System.Drawing.Point(508, 206);
             this.UserPictureBox9.Name = "UserPictureBox9";
             this.UserPictureBox9.Size = new System.Drawing.Size(125, 144);
@@ -247,6 +250,7 @@
             // 
             // UserPictureBox8
             // 
+            this.UserPictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox8.Location = new System.Drawing.Point(377, 206);
             this.UserPictureBox8.Name = "UserPictureBox8";
             this.UserPictureBox8.Size = new System.Drawing.Size(125, 144);
@@ -256,6 +260,7 @@
             // 
             // UserPictureBox7
             // 
+            this.UserPictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox7.Location = new System.Drawing.Point(246, 206);
             this.UserPictureBox7.Name = "UserPictureBox7";
             this.UserPictureBox7.Size = new System.Drawing.Size(125, 144);
@@ -265,6 +270,7 @@
             // 
             // UserPictureBox6
             // 
+            this.UserPictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox6.Location = new System.Drawing.Point(115, 206);
             this.UserPictureBox6.Name = "UserPictureBox6";
             this.UserPictureBox6.Size = new System.Drawing.Size(125, 144);
@@ -274,6 +280,7 @@
             // 
             // UserPictureBox5
             // 
+            this.UserPictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox5.Location = new System.Drawing.Point(639, 56);
             this.UserPictureBox5.Name = "UserPictureBox5";
             this.UserPictureBox5.Size = new System.Drawing.Size(125, 144);
@@ -283,6 +290,7 @@
             // 
             // UserPictureBox4
             // 
+            this.UserPictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox4.Location = new System.Drawing.Point(508, 56);
             this.UserPictureBox4.Name = "UserPictureBox4";
             this.UserPictureBox4.Size = new System.Drawing.Size(125, 144);
@@ -292,6 +300,7 @@
             // 
             // UserPictureBox3
             // 
+            this.UserPictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox3.Location = new System.Drawing.Point(377, 56);
             this.UserPictureBox3.Name = "UserPictureBox3";
             this.UserPictureBox3.Size = new System.Drawing.Size(125, 144);
@@ -301,6 +310,7 @@
             // 
             // UserPictureBox2
             // 
+            this.UserPictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox2.Location = new System.Drawing.Point(246, 56);
             this.UserPictureBox2.Name = "UserPictureBox2";
             this.UserPictureBox2.Size = new System.Drawing.Size(125, 144);
@@ -310,12 +320,23 @@
             // 
             // UserPictureBox1
             // 
+            this.UserPictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.UserPictureBox1.Location = new System.Drawing.Point(115, 56);
             this.UserPictureBox1.Name = "UserPictureBox1";
             this.UserPictureBox1.Size = new System.Drawing.Size(125, 144);
             this.UserPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.UserPictureBox1.TabIndex = 0;
             this.UserPictureBox1.TabStop = false;
+            // 
+            // CompareTab
+            // 
+            this.CompareTab.Location = new System.Drawing.Point(4, 25);
+            this.CompareTab.Name = "CompareTab";
+            this.CompareTab.Padding = new System.Windows.Forms.Padding(3);
+            this.CompareTab.Size = new System.Drawing.Size(912, 415);
+            this.CompareTab.TabIndex = 2;
+            this.CompareTab.Text = "Compare";
+            this.CompareTab.UseVisualStyleBackColor = true;
             // 
             // ProfilePictureBox
             // 
@@ -360,16 +381,6 @@
             this.RememberMeCheckbox.TabIndex = 4;
             this.RememberMeCheckbox.Text = "Remember me";
             this.RememberMeCheckbox.UseVisualStyleBackColor = false;
-            // 
-            // CompareTab
-            // 
-            this.CompareTab.Location = new System.Drawing.Point(4, 25);
-            this.CompareTab.Name = "CompareTab";
-            this.CompareTab.Padding = new System.Windows.Forms.Padding(3);
-            this.CompareTab.Size = new System.Drawing.Size(912, 415);
-            this.CompareTab.TabIndex = 2;
-            this.CompareTab.Text = "Compare";
-            this.CompareTab.UseVisualStyleBackColor = true;
             // 
             // FacebookForm
             // 
