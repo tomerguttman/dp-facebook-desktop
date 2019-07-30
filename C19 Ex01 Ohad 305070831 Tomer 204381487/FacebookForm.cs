@@ -27,37 +27,44 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void FacebookLoginButton_Click(object sender, EventArgs e)
         {
-            //Our appid:415704425731459 , 
-            m_LoginResult = FacebookService.Login("1450160541956417", "public_profile",
-                "email",
-                "publish_to_groups",
-                "user_birthday",
-                "user_age_range",
-                "user_gender",
-                "user_link",
-                "user_tagged_places",
-                "user_videos",
-                "publish_to_groups",
-                "groups_access_member_info",
-                "user_friends",
-                "user_events",
-                "user_likes",
-                "user_location",
-                "user_photos",
-                "user_posts",
-                "user_hometown");
+            try
+            {
+                //Our appid:415704425731459 
+                m_LoginResult = FacebookService.Login("1450160541956417", "public_profile",
+                    "email",
+                    "publish_to_groups",
+                    "user_birthday",
+                    "user_age_range",
+                    "user_gender",
+                    "user_link",
+                    "user_tagged_places",
+                    "user_videos",
+                    "publish_to_groups",
+                    "groups_access_member_info",
+                    "user_friends",
+                    "user_events",
+                    "user_likes",
+                    "user_location",
+                    "user_photos",
+                    "user_posts",
+                    "user_hometown");
             
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
-            {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
-                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
-                updateFormData();
-                this.FacebookLoginButton.Enabled = false;
+                if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+                {
+                    m_LoggedInUser = m_LoginResult.LoggedInUser;
+                    m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
+                    updateFormData();
+                    this.FacebookLoginButton.Enabled = false;
+                }
+                
             }
-            else
+            catch(Exception exception)
             {
-                MessageBox.Show(m_LoginResult.ErrorMessage);
+                
+                    MessageBox.Show("There was a connection problem with Facebook");
+               
             }
+            
         }
 
         private void updateFormData()
@@ -253,27 +260,26 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             tenBestFriendsAlgorithm();
         }
 
+        //Need to be moved to other class ... and also checked//
         private void tenBestFriendsAlgorithm()
         {
             Dictionary<string,UserRating> friendsRatingDictionary = InitializeUserRatingList(m_LoggedInUser);
             calculateFriendsRatingAndUpdate(friendsRatingDictionary);
-            IEnumerable<UserRating> friendsRatingDictionarySorted = friendsRatingDictionary.OrderBy(UserRating => UserRating.Value.Rating) as IEnumerable<UserRating>;
-            friendsRatingDictionarySorted.Reverse<UserRating>();
-
-            updatePicturesInTenBestFriendsTab(friendsRatingDictionarySorted);
-
-
+            List<KeyValuePair<string, UserRating>> usersRatingSortedList = friendsRatingDictionary.ToList<KeyValuePair<string, UserRating>>();
+            usersRatingSortedList.Sort((T1, T2) => T1.Value.Rating.CompareTo(T2.Value.Rating));
+            usersRatingSortedList.Reverse();
+            updatePicturesInTenBestFriendsTab(usersRatingSortedList);
         }
 
-        private void updatePicturesInTenBestFriendsTab(IEnumerable<UserRating> i_FriendsRatingDictionarySorted)
+        private void updatePicturesInTenBestFriendsTab(List<KeyValuePair<string, UserRating>> i_UsersRatingSortedList)
         {
             PictureBox temporaryPictureBox = null;
             int i = 1;
 
-            foreach(UserRating userRating in i_FriendsRatingDictionarySorted)
+            foreach (KeyValuePair<string, UserRating> userRating in i_UsersRatingSortedList)
             {
                 temporaryPictureBox = this.Controls.Find(string.Format("UserPictureBox{0}",i),true)[0] as PictureBox;
-                temporaryPictureBox.Image = userRating.User.ImageNormal;
+                temporaryPictureBox.Image = userRating.Value.User.ImageNormal;
                 i += 1;
 
                 if (i > 10)
@@ -344,5 +350,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             return o_InitializedUserRatingDictionary;
         }
+
+        ///////////////////////////////////////////////////////
     }
 }
