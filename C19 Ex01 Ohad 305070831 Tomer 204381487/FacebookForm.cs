@@ -22,9 +22,16 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public FacebookForm()
         {
-            m_UserSettings = Settings.LoadSettingsFromFile();
-            InitializeComponent();
-            this.RememberMeCheckbox.Checked = m_UserSettings.IsRememberMeChecked;
+            try
+            {
+                m_UserSettings = Settings.LoadSettingsFromFile();
+                InitializeComponent();
+                this.RememberMeCheckbox.Checked = m_UserSettings.IsRememberMeChecked;
+            }
+            catch
+            {
+                MessageBox.Show("There was a problem initializing the application.", "Initializing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -51,7 +58,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     "user_photos",
                     "user_posts",
                     "user_hometown");
-            
+
                 if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
                 {
                     m_LoggedInUser = m_LoginResult.LoggedInUser;
@@ -59,15 +66,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     updateFormData();
                     this.FacebookLoginButton.Enabled = false;
                 }
-                
             }
-            catch(Exception exception)
+            catch
             {
-                
-                    MessageBox.Show("There was a connection problem with Facebook");
-               
+                MessageBox.Show("There was a problem connecting to Facebook", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void updateFormData()
@@ -83,7 +87,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             foreach (Post post in m_LoggedInUser.Posts)
             {
-                PostsListBox.Items.Add(post.Message + " " + post.CreatedTime.Value.ToShortDateString());
+                PostsListBox.Items.Add(string.Format("{0} {1}", post.Message, post.CreatedTime.Value.ToShortDateString()));
             }
         }
 
@@ -132,16 +136,15 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                         DateChoseListBox.Items.Add(string.Format("There are no events on {0}", currentDate.ToShortDateString()));
                     }
                 }
-                catch(Exception exception)
+                catch
                 {
-                    MessageBox.Show("The information couldn't be retrieved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The information couldn't be retrieved!", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }
-
             else
             {
-                MessageBox.Show("Please login first!");
+                MessageBox.Show("Please login first.", "Login Violation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -228,14 +231,20 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         protected override void OnShown(EventArgs e)
         {
-            base.OnShown(e);
-
-            if (m_UserSettings.IsRememberMeChecked && !string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
+            try
             {
-                m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
-                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
-                updateFormData();
+                base.OnShown(e);
+                if (m_UserSettings.IsRememberMeChecked && !string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
+                {
+                    m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
+                    m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
+                    m_LoggedInUser = m_LoginResult.LoggedInUser;
+                    updateFormData();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("There was a problem connecting to Facebook","Connection Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -274,7 +283,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             tenBestFriendsAlgorithm();
         }
 
-        //Need to be moved to other class ... and also checked//
         private void tenBestFriendsAlgorithm()
         {
             updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
@@ -298,68 +306,5 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        //private void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary)
-        //{
-        //    updateFriendsRatingUsingLikes(i_FriendsRatingDictionary);
-        //    updateFriendsRatingUsingComments(i_FriendsRatingDictionary);
-        //}
-
-        //private void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary)
-        //{
-        //    updateUserRatingLikedPosts(io_FriendsRatingDictionary, m_LoggedInUser.WallPosts);
-        //    updateUserRatingLikedPosts(io_FriendsRatingDictionary, m_LoggedInUser.Posts);
-        //}
-
-        //private void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary , FacebookObjectCollection<Post> i_Posts)
-        //{
-        //    foreach (Post post in i_Posts)
-        //    {
-        //        FacebookObjectCollection<User> LikedByUsers = post.LikedBy;
-
-        //        foreach (User user in LikedByUsers)
-        //        {
-        //            if(user.Id != m_LoggedInUser.Id)
-        //            {
-        //                io_FriendsRatingDictionary[user.Id].Rating += 1;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //private void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary)
-        //{
-        //    updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, m_LoggedInUser.WallPosts);
-        //    updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, m_LoggedInUser.Posts);
-        //}
-
-        //private void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts)
-        //{
-        //    foreach (Post post in i_Posts)
-        //    {
-        //        FacebookObjectCollection<Comment> commentedByUsers = post.Comments;
-
-        //        foreach (Comment comment in commentedByUsers)
-        //        {
-        //            if (comment.From.Id != m_LoggedInUser.Id)
-        //            {
-        //                io_FriendsRatingDictionary[comment.From.Id].Rating += 1;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //private Dictionary<string, UserRating> InitializeUserRatingList(User i_LoggedInUser)
-        //{
-        //    Dictionary<string, UserRating> o_InitializedUserRatingDictionary = new Dictionary<string, UserRating>();
-
-        //    foreach (User user in i_LoggedInUser.Friends)
-        //    {
-        //        o_InitializedUserRatingDictionary.Add(user.Id, new UserRating(user));
-        //    }
-
-        //    return o_InitializedUserRatingDictionary;
-        //}
-
-        ///////////////////////////////////////////////////////
     }
 }
