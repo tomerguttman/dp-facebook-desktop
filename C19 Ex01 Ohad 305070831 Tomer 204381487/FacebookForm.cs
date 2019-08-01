@@ -186,7 +186,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             commentsForm.Controls.Add(postCommentsListBox);
             commentsForm.ShowDialog();
         }
-        //
+        
         private int getIndexOfPostInPostsList(string i_StringPost)
         {
             int o_OutputIndex = 0;
@@ -250,7 +250,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
             catch
             {
-                MessageBox.Show("There was a problem retrieving the data", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("There was a problem retrieving the data", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -331,14 +331,16 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 {
                     if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
                     {
+                            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+                        /*
                         try
                         {
-                            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
                         }
                         catch
                         {
                             MessageBox.Show("There was a problem fetching your best friends", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        */
                     }
                 }
             }

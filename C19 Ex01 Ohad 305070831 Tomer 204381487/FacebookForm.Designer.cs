@@ -40,6 +40,7 @@
             this.PostsListBox = new System.Windows.Forms.ListBox();
             this.MonthCalander = new System.Windows.Forms.MonthCalendar();
             this.BestFriendsTab = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
             this.FetchBestFriendsPhotosButton = new System.Windows.Forms.Button();
             this.UserPictureBox10 = new System.Windows.Forms.PictureBox();
             this.UserPictureBox9 = new System.Windows.Forms.PictureBox();
@@ -56,7 +57,17 @@
             this.CoverPhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.FacebookLoginButton = new System.Windows.Forms.Button();
             this.RememberMeCheckbox = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.FriendPictureBoxCompareTab = new System.Windows.Forms.PictureBox();
+            this.UserPictureBoxCompareTab = new System.Windows.Forms.PictureBox();
+            this.FriendsListBoxCompareTab = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.GeneralDataTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickedFriendPictureBox)).BeginInit();
@@ -71,8 +82,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox1)).BeginInit();
+            this.CompareTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoverPhotoPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FriendPictureBoxCompareTab)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBoxCompareTab)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -220,6 +234,16 @@
             this.BestFriendsTab.Text = "Best Friends";
             this.BestFriendsTab.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(228, 367);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(391, 20);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Click fetch and see who are your best friends";
+            // 
             // FetchBestFriendsPhotosButton
             // 
             this.FetchBestFriendsPhotosButton.Location = new System.Drawing.Point(322, 22);
@@ -332,6 +356,17 @@
             // 
             // CompareTab
             // 
+            this.CompareTab.Controls.Add(this.label13);
+            this.CompareTab.Controls.Add(this.label12);
+            this.CompareTab.Controls.Add(this.label11);
+            this.CompareTab.Controls.Add(this.label10);
+            this.CompareTab.Controls.Add(this.label9);
+            this.CompareTab.Controls.Add(this.label8);
+            this.CompareTab.Controls.Add(this.label7);
+            this.CompareTab.Controls.Add(this.label6);
+            this.CompareTab.Controls.Add(this.FriendsListBoxCompareTab);
+            this.CompareTab.Controls.Add(this.UserPictureBoxCompareTab);
+            this.CompareTab.Controls.Add(this.FriendPictureBoxCompareTab);
             this.CompareTab.Location = new System.Drawing.Point(4, 25);
             this.CompareTab.Name = "CompareTab";
             this.CompareTab.Padding = new System.Windows.Forms.Padding(3);
@@ -384,15 +419,103 @@
             this.RememberMeCheckbox.Text = "Remember me";
             this.RememberMeCheckbox.UseVisualStyleBackColor = false;
             // 
-            // label5
+            // FriendPictureBoxCompareTab
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(191, 362);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(531, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "According to our calculations, those are your ten best friends!";
+            this.FriendPictureBoxCompareTab.Location = new System.Drawing.Point(627, 44);
+            this.FriendPictureBoxCompareTab.Name = "FriendPictureBoxCompareTab";
+            this.FriendPictureBoxCompareTab.Size = new System.Drawing.Size(180, 191);
+            this.FriendPictureBoxCompareTab.TabIndex = 0;
+            this.FriendPictureBoxCompareTab.TabStop = false;
+            // 
+            // UserPictureBoxCompareTab
+            // 
+            this.UserPictureBoxCompareTab.Location = new System.Drawing.Point(95, 44);
+            this.UserPictureBoxCompareTab.Name = "UserPictureBoxCompareTab";
+            this.UserPictureBoxCompareTab.Size = new System.Drawing.Size(180, 191);
+            this.UserPictureBoxCompareTab.TabIndex = 1;
+            this.UserPictureBoxCompareTab.TabStop = false;
+            // 
+            // FriendsListBoxCompareTab
+            // 
+            this.FriendsListBoxCompareTab.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FriendsListBoxCompareTab.FormattingEnabled = true;
+            this.FriendsListBoxCompareTab.ItemHeight = 17;
+            this.FriendsListBoxCompareTab.Location = new System.Drawing.Point(332, 44);
+            this.FriendsListBoxCompareTab.Name = "FriendsListBoxCompareTab";
+            this.FriendsListBoxCompareTab.Size = new System.Drawing.Size(235, 191);
+            this.FriendsListBoxCompareTab.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(83, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(192, 17);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "UserNameCompareLabelTab";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(611, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(209, 17);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "FriendsNameLabelCompareTab";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(160, 253);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 17);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "label8";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(700, 253);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 17);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "label9";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(152, 285);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(54, 17);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "label10";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(700, 285);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 17);
+            this.label11.TabIndex = 9;
+            this.label11.Text = "label11";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(700, 322);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 17);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "label12";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(152, 322);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(54, 17);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "label13";
             // 
             // FacebookForm
             // 
@@ -425,8 +548,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBox1)).EndInit();
+            this.CompareTab.ResumeLayout(false);
+            this.CompareTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoverPhotoPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FriendPictureBoxCompareTab)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserPictureBoxCompareTab)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,6 +590,17 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage CompareTab;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox FriendsListBoxCompareTab;
+        private System.Windows.Forms.PictureBox UserPictureBoxCompareTab;
+        private System.Windows.Forms.PictureBox FriendPictureBoxCompareTab;
     }
 }
 

@@ -19,8 +19,29 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             m_UserAccessToken = "";
         }
 
-        public string UserAccessToken { get; set; }
-        public bool IsRememberMeChecked { get; set; }
+        public string UserAccessToken
+        {
+            get
+            {
+                return m_UserAccessToken;
+            }
+            set
+            {
+                m_UserAccessToken = value;
+            }
+        }
+
+        public bool IsRememberMeChecked
+        {
+            get
+            {
+                return m_IsRememberMeChecked;
+            }
+            set
+            {
+                m_IsRememberMeChecked = value;
+            }
+        }
 
         public void SaveSettingToFile()
         {
