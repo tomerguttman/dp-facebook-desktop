@@ -372,6 +372,7 @@
             // 
             // RememberMeCheckbox
             // 
+            this.RememberMeCheckbox.Checked = m_UserSettings.IsRememberMeChecked;
             this.RememberMeCheckbox.AutoSize = true;
             this.RememberMeCheckbox.BackColor = System.Drawing.Color.Transparent;
             this.RememberMeCheckbox.ForeColor = System.Drawing.Color.Black;

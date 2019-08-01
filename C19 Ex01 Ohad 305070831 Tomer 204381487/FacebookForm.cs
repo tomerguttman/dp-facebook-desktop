@@ -21,8 +21,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public FacebookForm()
         {
-            InitializeComponent();
             m_UserSettings = Settings.LoadSettingsFromFile();
+            InitializeComponent();
         }
 
         private void FacebookLoginButton_Click(object sender, EventArgs e)
@@ -240,6 +240,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             base.OnFormClosing(e);
 
+            closingSequnce();
+
+        }
+
+        private void closingSequnce()
+        {
             if (this.RememberMeCheckbox.Checked)
             {
                 m_UserSettings.IsRememberMeChecked = true;
@@ -247,10 +253,15 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
             else
             {
-                if (File.Exists("App Settings.xml"))
-                {
-                    File.Delete("App Settings.xml");
-                }
+                FacebookService.Logout(new Action(logoutFromApp));
+            }
+        }
+
+        private void logoutFromApp()
+        {
+            if (File.Exists("App Settings.xml"))
+            {
+                File.Delete("App Settings.xml");
             }
 
         }
