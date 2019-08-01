@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using System.IO;
 using FacebookWrapper;
+using System.Threading;
 
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
@@ -19,6 +20,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private Settings m_UserSettings;
         private LoginResult m_LoginResult;
         private const int k_BestFriendsLimit = 10;
+        private readonly object r_TenBestFriendsAlgorithmContext = new object();
+
+
 
         public FacebookForm()
         {
@@ -175,8 +179,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 postCommentsListBox.Items.Add(comment.Message);
             }
-            
-            if(postCommentsListBox.Items.Count == 0 )
+
             {
                 postCommentsListBox.Items.Add("There are no comments on this post.");
             }
@@ -184,7 +187,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             commentsForm.Controls.Add(postCommentsListBox);
             commentsForm.ShowDialog();
         }
-
+        //
         private int getIndexOfPostInPostsList(string i_stringPost)
         {
             int outputIndex = 0;
@@ -280,12 +283,22 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void FetchBestFriendsPhotosButton_Click(object sender, EventArgs e)
         {
-            tenBestFriendsAlgorithm();
+            Thread thread = new Thread(tenBestFriendsAlgorithm);
+            thread.Start();
         }
 
         private void tenBestFriendsAlgorithm()
         {
-            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+            if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
+            {
+                lock (r_TenBestFriendsAlgorithmContext)
+                {
+                    if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
+                    {
+                        updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+                    }
+                }
+            }
         }
 
         private void updatePicturesInTenBestFriendsTab(List<UserRating> i_UsersRatingSortedList)

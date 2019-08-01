@@ -9,6 +9,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     public static class TenBestFriendsAlgorithm
     {
+        private static bool s_WasAlgorithmActivated = false;
+
         public static List<UserRating> BestFriendsAlgorithm(User i_LoggedInUser)
         {
             Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingList(i_LoggedInUser);
@@ -17,7 +19,14 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             usersRatingSortedList.Sort((T1, T2) => T1.Rating.CompareTo(T2.Rating));
             usersRatingSortedList.Reverse();
 
+            s_WasAlgorithmActivated = true;
+
             return usersRatingSortedList;
+        }
+
+        public static bool WasAlgorithmActivated
+        {
+            get { return s_WasAlgorithmActivated; }
         }
 
         private static List<UserRating> convertDictionaryToList(Dictionary<string, UserRating> i_FriendsRatingDictionary)
@@ -25,7 +34,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             List<UserRating> o_UsersRatingSortedList = new List<UserRating>();
             o_UsersRatingSortedList.Capacity = i_FriendsRatingDictionary.Count;
 
-            foreach(KeyValuePair<string, UserRating> userRating in i_FriendsRatingDictionary )
+            foreach (KeyValuePair<string, UserRating> userRating in i_FriendsRatingDictionary)
             {
                 o_UsersRatingSortedList.Add(userRating.Value);
             }
