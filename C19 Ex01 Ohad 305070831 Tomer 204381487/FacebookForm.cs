@@ -180,6 +180,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 postCommentsListBox.Items.Add(comment.Message);
             }
 
+            if (postCommentsListBox.Items.Count == 0)
             {
                 postCommentsListBox.Items.Add("There are no comments on this post.");
             }
