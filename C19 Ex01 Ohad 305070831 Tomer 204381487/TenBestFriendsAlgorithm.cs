@@ -18,7 +18,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             List<UserRating> usersRatingSortedList = convertDictionaryToList(friendsRatingDictionary);
             usersRatingSortedList.Sort((T1, T2) => T1.Rating.CompareTo(T2.Rating));
             usersRatingSortedList.Reverse();
-
             s_WasAlgorithmActivated = true;
 
             return usersRatingSortedList;

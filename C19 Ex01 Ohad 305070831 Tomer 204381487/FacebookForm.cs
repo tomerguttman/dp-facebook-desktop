@@ -22,8 +22,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private const int k_BestFriendsLimit = 10;
         private readonly object r_TenBestFriendsAlgorithmContext = new object();
 
-
-
         public FacebookForm()
         {
             try
@@ -36,7 +34,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 MessageBox.Show("There was a problem initializing the application.", "Initializing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void FacebookLoginButton_Click(object sender, EventArgs e)
@@ -160,7 +157,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private void fetchCommentsFromSelectedPost(object sender)
         {
             List<Post> userPostList = m_LoggedInUser.Posts.ToList<Post>();
-            int postIndex = getIndexOfPostInPostsList((sender as ListBox).SelectedItem as string);
+            int postIndex = 0;
+            postIndex = getIndexOfPostInPostsList((sender as ListBox).SelectedItem as string);
             Post currentPost = userPostList[postIndex];
             Form commentsForm = new Form();
             ListBox postCommentsListBox = new ListBox();
@@ -189,48 +187,71 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             commentsForm.ShowDialog();
         }
         //
-        private int getIndexOfPostInPostsList(string i_stringPost)
+        private int getIndexOfPostInPostsList(string i_StringPost)
         {
-            int outputIndex = 0;
+            int o_OutputIndex = 0;
             string temporaryString = null;
 
-            foreach (Post currentPost in m_LoggedInUser.Posts)
+            try
             {
-                temporaryString = currentPost.Message + " " + currentPost.CreatedTime.Value.ToShortDateString();
-
-                if ( temporaryString.Contains(i_stringPost))
+                foreach (Post currentPost in m_LoggedInUser.Posts)
                 {
-                    break;
-                }
+                    temporaryString = currentPost.Message + " " + currentPost.CreatedTime.Value.ToShortDateString();
+                    if ( temporaryString.Contains(i_StringPost))
+                    {
+                        break;
+                    }
 
-                outputIndex += 1;
+                    o_OutputIndex += 1;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("The information couldn't be retrieved!", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return outputIndex;
+            return o_OutputIndex;
         }
 
-        private int getIndexOfUserInFriendList(string i_stringUserName)
+        private int getIndexOfUserInFriendList(string i_StringUserName)
         {
-            int outputIndex = 0;
+            int o_OutputIndex = 0;
 
-            foreach (User currentFriend in m_LoggedInUser.Friends)
+            try
             {
-                if (currentFriend.Name.Equals(i_stringUserName))
+                foreach (User currentFriend in m_LoggedInUser.Friends)
                 {
-                    break;
+                    if (currentFriend.Name.Equals(i_StringUserName))
+                    {
+                        break;
+                    }
+                    o_OutputIndex += 1;
                 }
-                outputIndex += 1;
+            }
+            catch
+            {
+                MessageBox.Show("The information couldn't be retrieved!", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return outputIndex;
+            return o_OutputIndex;
         }
 
         private void FriendsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<User> friendsList = m_LoggedInUser.Friends.ToList<User>();
-            int postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
-            User currentFriend = friendsList[postIndex];
-            pickedFriendPictureBox.Image = currentFriend.ImageLarge;
+            List<User> friendsList = null; 
+            int postIndex = 0;
+            User currentFriend = null;
+            try
+            {
+                friendsList = m_LoggedInUser.Friends.ToList<User>();
+                postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
+                currentFriend = friendsList[postIndex];
+                pickedFriendPictureBox.Image = currentFriend.ImageLarge;
+            }
+            catch
+            {
+                MessageBox.Show("There was a problem retrieving the data", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            }
         }
 
         protected override void OnShown(EventArgs e)
@@ -238,6 +259,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             try
             {
                 base.OnShown(e);
+
                 if (m_UserSettings.IsRememberMeChecked && !string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
                 {
                     m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
@@ -255,8 +277,14 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
-
-            closingSequnce();
+            try
+            {
+                closingSequnce();
+            }
+            catch
+            {
+                MessageBox.Show("There was a problem upon exit", "Exit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -279,13 +307,20 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 File.Delete("App Settings.xml");
             }
-
         }
 
         private void FetchBestFriendsPhotosButton_Click(object sender, EventArgs e)
         {
-            Thread thread = new Thread(tenBestFriendsAlgorithm);
-            thread.Start();
+            try
+            {
+                Thread thread = new Thread(tenBestFriendsAlgorithm);
+                thread.Start();
+            }
+            catch
+            {
+                MessageBox.Show("There was a problem fetching your best friends", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void tenBestFriendsAlgorithm()
@@ -296,7 +331,14 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 {
                     if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
                     {
-                        updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+                        try
+                        {
+                            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+                        }
+                        catch
+                        {
+                            MessageBox.Show("There was a problem fetching your best friends", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }
@@ -319,6 +361,5 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 }
             }
         }
-
     }
 }
