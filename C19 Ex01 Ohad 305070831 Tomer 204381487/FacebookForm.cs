@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using System.IO;
 using FacebookWrapper;
+using System.Threading;
 
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
@@ -19,6 +20,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private Settings m_UserSettings;
         private LoginResult m_LoginResult;
         private const int k_BestFriendsLimit = 10;
+        private readonly object r_TenBestFriendsAlgorithmContext = new object();
 
         public FacebookForm()
         {
@@ -271,13 +273,23 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void FetchBestFriendsPhotosButton_Click(object sender, EventArgs e)
         {
-            tenBestFriendsAlgorithm();
+            Thread thread = new Thread(tenBestFriendsAlgorithm);
+            thread.Start();
         }
 
-        //Need to be moved to other class ... and also checked//
+
         private void tenBestFriendsAlgorithm()
         {
-            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+            if(!TenBestFriendsAlgorithm.WasAlgorithmActivated)
+            {
+                lock(r_TenBestFriendsAlgorithmContext)
+                {
+                    if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
+                    {
+                        updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+                    }
+                }
+            }
         }
 
         private void updatePicturesInTenBestFriendsTab(List<UserRating> i_UsersRatingSortedList)
@@ -287,7 +299,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             foreach (UserRating userRating in i_UsersRatingSortedList)
             {
-                temporaryPictureBox = this.Controls.Find(string.Format("UserPictureBox{0}", index),true)[0] as PictureBox;
+                temporaryPictureBox = this.Controls.Find(string.Format("UserPictureBox{0}", index), true)[0] as PictureBox;
                 temporaryPictureBox.Image = userRating.User.ImageNormal;
                 index += 1;
 
@@ -297,69 +309,5 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 }
             }
         }
-
-        //private void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary)
-        //{
-        //    updateFriendsRatingUsingLikes(i_FriendsRatingDictionary);
-        //    updateFriendsRatingUsingComments(i_FriendsRatingDictionary);
-        //}
-
-        //private void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary)
-        //{
-        //    updateUserRatingLikedPosts(io_FriendsRatingDictionary, m_LoggedInUser.WallPosts);
-        //    updateUserRatingLikedPosts(io_FriendsRatingDictionary, m_LoggedInUser.Posts);
-        //}
-
-        //private void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary , FacebookObjectCollection<Post> i_Posts)
-        //{
-        //    foreach (Post post in i_Posts)
-        //    {
-        //        FacebookObjectCollection<User> LikedByUsers = post.LikedBy;
-
-        //        foreach (User user in LikedByUsers)
-        //        {
-        //            if(user.Id != m_LoggedInUser.Id)
-        //            {
-        //                io_FriendsRatingDictionary[user.Id].Rating += 1;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //private void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary)
-        //{
-        //    updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, m_LoggedInUser.WallPosts);
-        //    updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, m_LoggedInUser.Posts);
-        //}
-
-        //private void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts)
-        //{
-        //    foreach (Post post in i_Posts)
-        //    {
-        //        FacebookObjectCollection<Comment> commentedByUsers = post.Comments;
-
-        //        foreach (Comment comment in commentedByUsers)
-        //        {
-        //            if (comment.From.Id != m_LoggedInUser.Id)
-        //            {
-        //                io_FriendsRatingDictionary[comment.From.Id].Rating += 1;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //private Dictionary<string, UserRating> InitializeUserRatingList(User i_LoggedInUser)
-        //{
-        //    Dictionary<string, UserRating> o_InitializedUserRatingDictionary = new Dictionary<string, UserRating>();
-
-        //    foreach (User user in i_LoggedInUser.Friends)
-        //    {
-        //        o_InitializedUserRatingDictionary.Add(user.Id, new UserRating(user));
-        //    }
-
-        //    return o_InitializedUserRatingDictionary;
-        //}
-
-        ///////////////////////////////////////////////////////
     }
 }
