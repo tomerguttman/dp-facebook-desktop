@@ -74,6 +74,10 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private void updateFormData()
         {
             this.ProfilePictureBox.Image = m_LoggedInUser.ImageNormal;
+            this.UserPictureBoxCompareTab.Image = m_LoggedInUser.ImageNormal;
+            this.UserNameLabelCompareTab.Text = string.Format("Full Name: {0}", m_LoggedInUser.Name);
+            //this.UserAgeLabelCompareTab.Text = string.Format("Age: {0}",);
+            this.UserBDAYLabelCompareTab.Text = string.Format("Birthday Date: {0}", m_LoggedInUser.Birthday.ToString());
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
             addFriendsToListBox();
@@ -93,6 +97,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             foreach (User friend in m_LoggedInUser.Friends)
             {
                 FriendsListBox.Items.Add(friend.Name);
+                FriendsListBoxCompareTab.Items.Add(friend.Name);
             }
         }
 
@@ -234,7 +239,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void FriendsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<User> friendsList = null; 
+            friendsListBox_SelectedIndexChangedGeneralMethod(sender, e, "General Data Tab");
+        }
+
+        private void friendsListBox_SelectedIndexChangedGeneralMethod(object sender, EventArgs e, string i_StringNameOfTabToUpdate)
+        {
+            List<User> friendsList = null;
             int postIndex = 0;
             User currentFriend = null;
             try
@@ -242,7 +252,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 friendsList = m_LoggedInUser.Friends.ToList<User>();
                 postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
                 currentFriend = friendsList[postIndex];
-                pickedFriendPictureBox.Image = currentFriend.ImageLarge;
+                if (i_StringNameOfTabToUpdate.Equals("General Data Tab"))
+                {
+                    pickedFriendPictureBox.Image = currentFriend.ImageLarge;
+                }
+                else
+                {
+                    FriendPictureBoxCompareTab.Image = currentFriend.ImageLarge;
+                    FriendNameLabelCompareTab.Text = string.Format("Full Name: ", currentFriend.Name);
+                    //need to add age - can't really retrieve the data from the friend...
+                    FriendBDAYLabelCompareTab.Text = string.Format("Birthday Date: ", currentFriend.Birthday.ToString());
+                }
             }
             catch
             {
@@ -355,6 +375,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     break;
                 }
             }
+        }
+
+        private void FriendsListBoxCompareTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            friendsListBox_SelectedIndexChangedGeneralMethod(sender, e, "Compare Tab");
         }
     }
 }
