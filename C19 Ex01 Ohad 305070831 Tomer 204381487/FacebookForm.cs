@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using System.IO;
@@ -72,7 +69,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 MessageBox.Show("There was a problem connecting to Facebook", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void updateFormData()
@@ -266,6 +262,10 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
                     m_LoggedInUser = m_LoginResult.LoggedInUser;
                     updateFormData();
+                    if(m_LoggedInUser != null)
+                    {
+                        this.FacebookLoginButton.Enabled = false;
+                    }
                 }
             }
             catch
@@ -315,12 +315,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 Thread thread = new Thread(tenBestFriendsAlgorithm);
                 thread.Start();
+                this.FetchBestFriendsPhotosButton.Enabled = false;
             }
             catch
             {
                 MessageBox.Show("There was a problem fetching your best friends", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void tenBestFriendsAlgorithm()
@@ -331,16 +331,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 {
                     if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
                     {
-                            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
-                        /*
-                        try
-                        {
-                        }
-                        catch
-                        {
-                            MessageBox.Show("There was a problem fetching your best friends", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        */
+                        updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
+                        this.label5.Font = new Font(label5.Font.FontFamily, 8f, FontStyle.Bold | FontStyle.Italic);
+                        this.label5.Text = "According to our calculations those are your ten best friends";
                     }
                 }
             }

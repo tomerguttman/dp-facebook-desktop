@@ -7,9 +7,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {

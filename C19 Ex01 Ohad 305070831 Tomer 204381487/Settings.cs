@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 using System.IO;
 using System.Xml.Serialization;
-using System.Xml;
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
