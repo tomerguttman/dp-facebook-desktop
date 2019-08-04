@@ -424,18 +424,27 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void ExportToTextFile()
         {
-            List<string> compareData = new List<string>();
+            string compareData = null;
             StreamWriter comparisonStreamWriter = null;
 
-            compareData.Add(string.Format("-------Comparison with {0}-------", this.FriendNameLabelCompareTab.Text));
-            compareData.Add(string.Format("   {0}      Full Name       {1}", this.UserNameLabelCompareTab.Text, this.FriendNameLabelCompareTab.Text));
-            compareData.Add(string.Format("   {0}      Age             {1}", this.UserAgeLabelCompareTab.Text, this.FriendAgeLabelCompareTab.Text));
-            compareData.Add(string.Format("   {0}      Birthday        {1}", this.UserBDAYLabelCompareTab.Text, this.FriendBDAYLabelCompareTab.Text));
-            compareData.Add(string.Format("   {0}      Hometown        {1}", this.UserHomeTownLabelCompareTab.Text, this.FriendHomeTownLabelCompareTab.Text));
+            compareData = string.Format(
+@"-------Comparison with {1}------- 
+{0} [Full Name] {1}
+{2} [Age] {3}
+{4} [Birthday] {5}
+{6} [Hometown] {7}", 
+this.UserNameLabelCompareTab.Text, 
+this.FriendNameLabelCompareTab.Text, 
+this.UserAgeLabelCompareTab.Text,
+this.FriendAgeLabelCompareTab.Text, 
+this.UserBDAYLabelCompareTab.Text, 
+this.FriendBDAYLabelCompareTab.Text, 
+this.UserHomeTownLabelCompareTab.Text,
+this.FriendHomeTownLabelCompareTab.Text);
 
             try
             {
-                comparisonStreamWriter = File.CreateText("Comparison To Friend.txt");
+                comparisonStreamWriter = File.AppendText("Comparison To Friend.txt");
             }
             catch
             {
@@ -444,10 +453,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             using (comparisonStreamWriter)
             {
-                foreach (string line in compareData)
-                {
-                    comparisonStreamWriter.WriteLine(line);
-                }
+                comparisonStreamWriter.WriteLine(compareData);
 
                 comparisonStreamWriter.Close();
             }
