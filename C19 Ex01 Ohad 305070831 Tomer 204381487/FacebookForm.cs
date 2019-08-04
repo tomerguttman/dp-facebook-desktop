@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
 using System.IO;
-using FacebookWrapper;
 using System.Threading;
-
+using FacebookWrapper.ObjectModel;
+using FacebookWrapper;
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     public partial class FacebookForm : Form
     {
+        private const int k_BestFriendsLimit = 10;
+        private readonly object r_TenBestFriendsAlgorithmContext = new object();
         private User m_LoggedInUser;
         private Settings m_UserSettings;
         private LoginResult m_LoginResult;
-        private const int k_BestFriendsLimit = 10;
-        private readonly object r_TenBestFriendsAlgorithmContext = new object();
 
         public FacebookForm()
         {
@@ -37,8 +36,10 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             try
             {
-                //Our appid:415704425731459 
-                m_LoginResult = FacebookService.Login("1450160541956417", "public_profile",
+                // Our appid:415704425731459
+                m_LoginResult = FacebookService.Login(
+                    "1450160541956417",
+                    "public_profile",
                     "email",
                     "publish_to_groups",
                     "user_birthday",
@@ -84,8 +85,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             this.UserPictureBoxCompareTab.Image = m_LoggedInUser.ImageNormal;
             this.UserNameLabelCompareTab.Text = m_LoggedInUser.Name;
             this.UserAgeLabelCompareTab.Text = string.Format("{0}", userAge);
-            this.UserBDAYLabelCompareTab.Text =  m_LoggedInUser.Birthday;
-            //this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;  Throwing an exception - data cannot be retrieved.
+            this.UserBDAYLabelCompareTab.Text = m_LoggedInUser.Birthday;
+
+            // this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;  Throwing an exception - data cannot be retrieved.
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
             addFriendsToListBox();
@@ -136,7 +138,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     {
                         if (friend.Birthday.Remove(0, 5) == shortCurrentDate)
                         {
-
                             this.DateChoseListBox.Items.Add(friend.Name + "'s Birthday");
                         }
                     }
@@ -150,7 +151,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 {
                     MessageBox.Show("The information couldn't be retrieved!", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
             else
             {
@@ -195,7 +195,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             commentsForm.Controls.Add(postCommentsListBox);
             commentsForm.ShowDialog();
         }
-        
+
         private int getIndexOfPostInPostsList(string i_StringPost)
         {
             int o_OutputIndex = 0;
@@ -206,7 +206,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 foreach (Post currentPost in m_LoggedInUser.Posts)
                 {
                     temporaryString = currentPost.Message + " " + currentPost.CreatedTime.Value.ToShortDateString();
-                    if ( temporaryString.Contains(i_StringPost))
+
+                    if (temporaryString.Contains(i_StringPost))
                     {
                         break;
                     }
@@ -234,6 +235,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     {
                         break;
                     }
+
                     o_OutputIndex += 1;
                 }
             }
@@ -283,7 +285,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             int friendAge = 0;
             if (i_CurrentFriend.Birthday != null && i_CurrentFriend.Birthday.Length == 10 )
             {
-                if ( int.TryParse(i_CurrentFriend.Birthday.Remove(0,6), out friendAge))
+                if (int.TryParse(i_CurrentFriend.Birthday.Remove(0, 6), out friendAge))
                 {
                     friendAge = DateTime.Today.Year - friendAge;
                     FriendAgeLabelCompareTab.Text = string.Format("{0}", friendAge);
@@ -293,10 +295,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 FriendAgeLabelCompareTab.Text = "Unknown";
             }
+
             FriendPictureBoxCompareTab.Image = i_CurrentFriend.ImageLarge;
             FriendNameLabelCompareTab.Text = i_CurrentFriend.Name;
             FriendBDAYLabelCompareTab.Text = i_CurrentFriend.Birthday;
-            //FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name; Throwing an exception - data cannot be retrieved.
+
+            // FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name; Throwing an exception - data cannot be retrieved.
         }
 
         protected override void OnShown(EventArgs e)
@@ -320,7 +324,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
             catch
             {
-                MessageBox.Show("There was a problem connecting to Facebook","Connection Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("There was a problem connecting to Facebook", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -353,7 +357,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void voidFunction()
         {
-            //this method is empty according to the Logout method needings.
+            // this method is empty according to the Logout method needs.
         }
 
         private void deleteXmlFile()
@@ -401,7 +405,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             foreach (UserRating userRating in i_UsersRatingSortedList)
             {
-                temporaryPictureBox = this.Controls.Find(string.Format("UserPictureBox{0}", index),true)[0] as PictureBox;
+                temporaryPictureBox = this.Controls.Find(string.Format("UserPictureBox{0}", index), true)[0] as PictureBox;
                 temporaryPictureBox.Image = userRating.User.ImageNormal;
                 index += 1;
 
@@ -432,13 +436,13 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {0} [Full Name] {1}
 {2} [Age] {3}
 {4} [Birthday] {5}
-{6} [Hometown] {7}", 
-this.UserNameLabelCompareTab.Text, 
-this.FriendNameLabelCompareTab.Text, 
+{6} [Hometown] {7}",
+this.UserNameLabelCompareTab.Text,
+this.FriendNameLabelCompareTab.Text,
 this.UserAgeLabelCompareTab.Text,
-this.FriendAgeLabelCompareTab.Text, 
-this.UserBDAYLabelCompareTab.Text, 
-this.FriendBDAYLabelCompareTab.Text, 
+this.FriendAgeLabelCompareTab.Text,
+this.UserBDAYLabelCompareTab.Text,
+this.FriendBDAYLabelCompareTab.Text,
 this.UserHomeTownLabelCompareTab.Text,
 this.FriendHomeTownLabelCompareTab.Text);
 
