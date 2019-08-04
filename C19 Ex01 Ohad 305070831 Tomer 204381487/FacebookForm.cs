@@ -75,18 +75,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             int userAge = 0;
 
-            if(int.TryParse(m_LoggedInUser.Birthday.Remove(6, 4),out userAge))
+            if (int.TryParse(m_LoggedInUser.Birthday.Substring(6), out userAge))
             {
-                userAge -= DateTime.Today.Year;
+                userAge = DateTime.Today.Year - userAge;
             }
-
 
             this.ProfilePictureBox.Image = m_LoggedInUser.ImageNormal;
             this.UserPictureBoxCompareTab.Image = m_LoggedInUser.ImageNormal;
             this.UserNameLabelCompareTab.Text = m_LoggedInUser.Name;
             this.UserAgeLabelCompareTab.Text = string.Format("{0}", userAge);
-            this.UserBDAYLabelCompareTab.Text = string.Format("Birthday Date: {0}", m_LoggedInUser.Birthday);
-            this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;
+            this.UserBDAYLabelCompareTab.Text =  m_LoggedInUser.Birthday;
+            //this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;  Throwing an exception - data cannot be retrieved.
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
             addFriendsToListBox();
@@ -282,17 +281,22 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private void updateCompareTabDetails(User i_CurrentFriend)
         {
             int friendAge = 0;
-
-            if(int.TryParse(i_CurrentFriend.Birthday.Remove(6,4), out friendAge))
+            if (i_CurrentFriend.Birthday != null && i_CurrentFriend.Birthday.Length == 10 )
             {
-                friendAge -= DateTime.Today.Year;
+                if ( int.TryParse(i_CurrentFriend.Birthday.Remove(0,6), out friendAge))
+                {
+                    friendAge = DateTime.Today.Year - friendAge;
+                    FriendAgeLabelCompareTab.Text = string.Format("{0}", friendAge);
+                }
             }
-
+            else
+            {
+                FriendAgeLabelCompareTab.Text = "Unknown";
+            }
             FriendPictureBoxCompareTab.Image = i_CurrentFriend.ImageLarge;
             FriendNameLabelCompareTab.Text = i_CurrentFriend.Name;
-            FriendAgeLabelCompareTab.Text = string.Format("{0}", friendAge);
             FriendBDAYLabelCompareTab.Text = i_CurrentFriend.Birthday;
-            FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name;
+            //FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name; Throwing an exception - data cannot be retrieved.
         }
 
         protected override void OnShown(EventArgs e)
@@ -331,7 +335,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 MessageBox.Show("There was a problem upon exit", "Exit Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void closingSequnce()
@@ -343,11 +346,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
             else
             {
-                FacebookService.Logout(new Action(logoutFromApp));
+                this.deleteXmlFile();
+                FacebookService.Logout(new Action(voidFunction));
             }
         }
 
-        private void logoutFromApp()
+        private void voidFunction()
+        {
+            //this method is empty according to the Logout method needings.
+        }
+
+        private void deleteXmlFile()
         {
             if (File.Exists("App Settings.xml"))
             {

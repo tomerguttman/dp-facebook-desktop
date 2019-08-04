@@ -53,6 +53,13 @@
             this.UserPictureBox2 = new System.Windows.Forms.PictureBox();
             this.UserPictureBox1 = new System.Windows.Forms.PictureBox();
             this.CompareTab = new System.Windows.Forms.TabPage();
+            this.ExportToFileCompareTabButton = new System.Windows.Forms.Button();
+            this.HometownParameter = new System.Windows.Forms.Label();
+            this.FriendHomeTownLabelCompareTab = new System.Windows.Forms.Label();
+            this.UserHomeTownLabelCompareTab = new System.Windows.Forms.Label();
+            this.BirthdayParameter = new System.Windows.Forms.Label();
+            this.AgeParameter = new System.Windows.Forms.Label();
+            this.FullNameParameter = new System.Windows.Forms.Label();
             this.UserBDAYLabelCompareTab = new System.Windows.Forms.Label();
             this.FriendBDAYLabelCompareTab = new System.Windows.Forms.Label();
             this.FriendAgeLabelCompareTab = new System.Windows.Forms.Label();
@@ -68,13 +75,6 @@
             this.CoverPhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.FacebookLoginButton = new System.Windows.Forms.Button();
             this.RememberMeCheckbox = new System.Windows.Forms.CheckBox();
-            this.FullNameParameter = new System.Windows.Forms.Label();
-            this.AgeParameter = new System.Windows.Forms.Label();
-            this.BirthdayParameter = new System.Windows.Forms.Label();
-            this.UserHomeTownLabelCompareTab = new System.Windows.Forms.Label();
-            this.FriendHomeTownLabelCompareTab = new System.Windows.Forms.Label();
-            this.HometownParameter = new System.Windows.Forms.Label();
-            this.ExportToFileCompareTabButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.GeneralDataTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickedFriendPictureBox)).BeginInit();
@@ -389,6 +389,71 @@
             this.CompareTab.Text = "Compare";
             this.CompareTab.UseVisualStyleBackColor = true;
             // 
+            // ExportToFileCompareTabButton
+            // 
+            this.ExportToFileCompareTabButton.Enabled = false;
+            this.ExportToFileCompareTabButton.Location = new System.Drawing.Point(399, 9);
+            this.ExportToFileCompareTabButton.Name = "ExportToFileCompareTabButton";
+            this.ExportToFileCompareTabButton.Size = new System.Drawing.Size(100, 32);
+            this.ExportToFileCompareTabButton.TabIndex = 18;
+            this.ExportToFileCompareTabButton.Text = "Export to file";
+            this.ExportToFileCompareTabButton.UseVisualStyleBackColor = true;
+            this.ExportToFileCompareTabButton.Click += new System.EventHandler(this.ExportToFileCompareTabButton_Click);
+            // 
+            // HometownParameter
+            // 
+            this.HometownParameter.AutoSize = true;
+            this.HometownParameter.Location = new System.Drawing.Point(416, 362);
+            this.HometownParameter.Name = "HometownParameter";
+            this.HometownParameter.Size = new System.Drawing.Size(74, 17);
+            this.HometownParameter.TabIndex = 17;
+            this.HometownParameter.Text = "Hometown";
+            // 
+            // FriendHomeTownLabelCompareTab
+            // 
+            this.FriendHomeTownLabelCompareTab.AutoSize = true;
+            this.FriendHomeTownLabelCompareTab.Location = new System.Drawing.Point(624, 362);
+            this.FriendHomeTownLabelCompareTab.Name = "FriendHomeTownLabelCompareTab";
+            this.FriendHomeTownLabelCompareTab.Size = new System.Drawing.Size(13, 17);
+            this.FriendHomeTownLabelCompareTab.TabIndex = 16;
+            this.FriendHomeTownLabelCompareTab.Text = "-";
+            // 
+            // UserHomeTownLabelCompareTab
+            // 
+            this.UserHomeTownLabelCompareTab.AutoSize = true;
+            this.UserHomeTownLabelCompareTab.Location = new System.Drawing.Point(92, 362);
+            this.UserHomeTownLabelCompareTab.Name = "UserHomeTownLabelCompareTab";
+            this.UserHomeTownLabelCompareTab.Size = new System.Drawing.Size(13, 17);
+            this.UserHomeTownLabelCompareTab.TabIndex = 15;
+            this.UserHomeTownLabelCompareTab.Text = "-";
+            // 
+            // BirthdayParameter
+            // 
+            this.BirthdayParameter.AutoSize = true;
+            this.BirthdayParameter.Location = new System.Drawing.Point(416, 322);
+            this.BirthdayParameter.Name = "BirthdayParameter";
+            this.BirthdayParameter.Size = new System.Drawing.Size(60, 17);
+            this.BirthdayParameter.TabIndex = 14;
+            this.BirthdayParameter.Text = "Birthday";
+            // 
+            // AgeParameter
+            // 
+            this.AgeParameter.AutoSize = true;
+            this.AgeParameter.Location = new System.Drawing.Point(416, 285);
+            this.AgeParameter.Name = "AgeParameter";
+            this.AgeParameter.Size = new System.Drawing.Size(33, 17);
+            this.AgeParameter.TabIndex = 13;
+            this.AgeParameter.Text = "Age";
+            // 
+            // FullNameParameter
+            // 
+            this.FullNameParameter.AutoSize = true;
+            this.FullNameParameter.Location = new System.Drawing.Point(416, 253);
+            this.FullNameParameter.Name = "FullNameParameter";
+            this.FullNameParameter.Size = new System.Drawing.Size(71, 17);
+            this.FullNameParameter.TabIndex = 12;
+            this.FullNameParameter.Text = "Full Name";
+            // 
             // UserBDAYLabelCompareTab
             // 
             this.UserBDAYLabelCompareTab.AutoSize = true;
@@ -536,71 +601,6 @@
             this.RememberMeCheckbox.TabIndex = 4;
             this.RememberMeCheckbox.Text = "Remember me";
             this.RememberMeCheckbox.UseVisualStyleBackColor = false;
-            // 
-            // FullNameParameter
-            // 
-            this.FullNameParameter.AutoSize = true;
-            this.FullNameParameter.Location = new System.Drawing.Point(416, 253);
-            this.FullNameParameter.Name = "FullNameParameter";
-            this.FullNameParameter.Size = new System.Drawing.Size(71, 17);
-            this.FullNameParameter.TabIndex = 12;
-            this.FullNameParameter.Text = "Full Name";
-            // 
-            // AgeParameter
-            // 
-            this.AgeParameter.AutoSize = true;
-            this.AgeParameter.Location = new System.Drawing.Point(416, 285);
-            this.AgeParameter.Name = "AgeParameter";
-            this.AgeParameter.Size = new System.Drawing.Size(33, 17);
-            this.AgeParameter.TabIndex = 13;
-            this.AgeParameter.Text = "Age";
-            // 
-            // BirthdayParameter
-            // 
-            this.BirthdayParameter.AutoSize = true;
-            this.BirthdayParameter.Location = new System.Drawing.Point(416, 322);
-            this.BirthdayParameter.Name = "BirthdayParameter";
-            this.BirthdayParameter.Size = new System.Drawing.Size(60, 17);
-            this.BirthdayParameter.TabIndex = 14;
-            this.BirthdayParameter.Text = "Birthday";
-            // 
-            // UserHomeTownLabelCompareTab
-            // 
-            this.UserHomeTownLabelCompareTab.AutoSize = true;
-            this.UserHomeTownLabelCompareTab.Location = new System.Drawing.Point(92, 362);
-            this.UserHomeTownLabelCompareTab.Name = "UserHomeTownLabelCompareTab";
-            this.UserHomeTownLabelCompareTab.Size = new System.Drawing.Size(13, 17);
-            this.UserHomeTownLabelCompareTab.TabIndex = 15;
-            this.UserHomeTownLabelCompareTab.Text = "-";
-            // 
-            // FriendHomeTownLabelCompareTab
-            // 
-            this.FriendHomeTownLabelCompareTab.AutoSize = true;
-            this.FriendHomeTownLabelCompareTab.Location = new System.Drawing.Point(624, 362);
-            this.FriendHomeTownLabelCompareTab.Name = "FriendHomeTownLabelCompareTab";
-            this.FriendHomeTownLabelCompareTab.Size = new System.Drawing.Size(13, 17);
-            this.FriendHomeTownLabelCompareTab.TabIndex = 16;
-            this.FriendHomeTownLabelCompareTab.Text = "-";
-            // 
-            // HometownParameter
-            // 
-            this.HometownParameter.AutoSize = true;
-            this.HometownParameter.Location = new System.Drawing.Point(416, 362);
-            this.HometownParameter.Name = "HometownParameter";
-            this.HometownParameter.Size = new System.Drawing.Size(74, 17);
-            this.HometownParameter.TabIndex = 17;
-            this.HometownParameter.Text = "Hometown";
-            // 
-            // ExportToFileCompareTabButton
-            // 
-            this.ExportToFileCompareTabButton.Enabled = false;
-            this.ExportToFileCompareTabButton.Location = new System.Drawing.Point(407, 6);
-            this.ExportToFileCompareTabButton.Name = "ExportToFileCompareTabButton";
-            this.ExportToFileCompareTabButton.Size = new System.Drawing.Size(100, 32);
-            this.ExportToFileCompareTabButton.TabIndex = 18;
-            this.ExportToFileCompareTabButton.Text = "Export to file";
-            this.ExportToFileCompareTabButton.UseVisualStyleBackColor = true;
-            this.ExportToFileCompareTabButton.Click += new System.EventHandler(this.ExportToFileCompareTabButton_Click);
             // 
             // FacebookForm
             // 
