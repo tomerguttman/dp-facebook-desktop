@@ -76,9 +76,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             int userAge = 0;
 
-            if (int.TryParse(m_LoggedInUser.Birthday.Substring(6), out userAge))
+            if (m_LoggedInUser.Birthday != null && m_LoggedInUser.Birthday.Length == 10)
             {
-                userAge = DateTime.Today.Year - userAge;
+                if (int.TryParse(m_LoggedInUser.Birthday.Remove(0, 6), out userAge))
+                {
+                    userAge = DateTime.Today.Year - userAge;
+                    FriendAgeLabelCompareTab.Text = string.Format("{0}", userAge);
+                }
+            }
+            else
+            {
+                FriendAgeLabelCompareTab.Text = "Unknown";
             }
 
             this.ProfilePictureBox.Image = m_LoggedInUser.ImageNormal;
