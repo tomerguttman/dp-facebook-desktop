@@ -73,11 +73,20 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void updateFormData()
         {
+            int userAge = 0;
+
+            if(int.TryParse(m_LoggedInUser.Birthday.Remove(6, 4),out userAge))
+            {
+                userAge -= DateTime.Today.Year;
+            }
+
+
             this.ProfilePictureBox.Image = m_LoggedInUser.ImageNormal;
             this.UserPictureBoxCompareTab.Image = m_LoggedInUser.ImageNormal;
-            this.UserNameLabelCompareTab.Text = string.Format("Full Name: {0}", m_LoggedInUser.Name);
-            //this.UserAgeLabelCompareTab.Text = string.Format("Age: {0}",);
-            this.UserBDAYLabelCompareTab.Text = string.Format("Birthday Date: {0}", m_LoggedInUser.Birthday.ToString());
+            this.UserNameLabelCompareTab.Text = m_LoggedInUser.Name;
+            this.UserAgeLabelCompareTab.Text = string.Format("{0}", userAge);
+            this.UserBDAYLabelCompareTab.Text = string.Format("Birthday Date: {0}", m_LoggedInUser.Birthday);
+            this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;
             this.Text = m_LoggedInUser.Name;
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
             addFriendsToListBox();
@@ -247,27 +256,43 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             List<User> friendsList = null;
             int postIndex = 0;
             User currentFriend = null;
+
             try
             {
                 friendsList = m_LoggedInUser.Friends.ToList<User>();
                 postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
                 currentFriend = friendsList[postIndex];
+
                 if (i_StringNameOfTabToUpdate.Equals("General Data Tab"))
                 {
                     pickedFriendPictureBox.Image = currentFriend.ImageLarge;
                 }
                 else
                 {
-                    FriendPictureBoxCompareTab.Image = currentFriend.ImageLarge;
-                    FriendNameLabelCompareTab.Text = string.Format("Full Name: ", currentFriend.Name);
-                    //need to add age - can't really retrieve the data from the friend...
-                    FriendBDAYLabelCompareTab.Text = string.Format("Birthday Date: ", currentFriend.Birthday.ToString());
+                    updateCompareTabDetails(currentFriend);
+                    this.ExportToFileCompareTabButton.Enabled = true;
                 }
             }
             catch
             {
                 MessageBox.Show("There was a problem retrieving the data", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void updateCompareTabDetails(User i_CurrentFriend)
+        {
+            int friendAge = 0;
+
+            if(int.TryParse(i_CurrentFriend.Birthday.Remove(6,4), out friendAge))
+            {
+                friendAge -= DateTime.Today.Year;
+            }
+
+            FriendPictureBoxCompareTab.Image = i_CurrentFriend.ImageLarge;
+            FriendNameLabelCompareTab.Text = i_CurrentFriend.Name;
+            FriendAgeLabelCompareTab.Text = string.Format("{0}", friendAge);
+            FriendBDAYLabelCompareTab.Text = i_CurrentFriend.Birthday;
+            FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name;
         }
 
         protected override void OnShown(EventArgs e)
@@ -282,6 +307,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
                     m_LoggedInUser = m_LoginResult.LoggedInUser;
                     updateFormData();
+
                     if(m_LoggedInUser != null)
                     {
                         this.FacebookLoginButton.Enabled = false;
@@ -380,6 +406,42 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private void FriendsListBoxCompareTab_SelectedIndexChanged(object sender, EventArgs e)
         {
             friendsListBox_SelectedIndexChangedGeneralMethod(sender, e, "Compare Tab");
+        }
+
+        private void ExportToFileCompareTabButton_Click(object sender, EventArgs e)
+        {
+            ExportToTextFile();
+        }
+
+        private void ExportToTextFile()
+        {
+            List<string> compareData = new List<string>();
+            StreamWriter comparisonStreamWriter = null;
+
+            compareData.Add(string.Format("-------Comparison with {0}-------", this.FriendNameLabelCompareTab.Text));
+            compareData.Add(string.Format("   {0}      Full Name       {1}", this.UserNameLabelCompareTab.Text, this.FriendNameLabelCompareTab.Text));
+            compareData.Add(string.Format("   {0}      Age             {1}", this.UserAgeLabelCompareTab.Text, this.FriendAgeLabelCompareTab.Text));
+            compareData.Add(string.Format("   {0}      Birthday        {1}", this.UserBDAYLabelCompareTab.Text, this.FriendBDAYLabelCompareTab.Text));
+            compareData.Add(string.Format("   {0}      Hometown        {1}", this.UserHomeTownLabelCompareTab.Text, this.FriendHomeTownLabelCompareTab.Text));
+
+            try
+            {
+                comparisonStreamWriter = File.CreateText("Comparison To Friend.txt");
+            }
+            catch
+            {
+                MessageBox.Show("There was an error with the file", "File Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            using (comparisonStreamWriter)
+            {
+                foreach (string line in compareData)
+                {
+                    comparisonStreamWriter.WriteLine(line);
+                }
+
+                comparisonStreamWriter.Close();
+            }
         }
     }
 }
