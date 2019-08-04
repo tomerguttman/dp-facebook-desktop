@@ -1,7 +1,5 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FacebookWrapper.ObjectModel;
-
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
@@ -14,7 +12,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingList(i_LoggedInUser);
             calculateFriendsRatingAndUpdate(friendsRatingDictionary, i_LoggedInUser);
             List<UserRating> usersRatingSortedList = convertDictionaryToList(friendsRatingDictionary);
-            usersRatingSortedList.Sort((T1, T2) => T1.Rating.CompareTo(T2.Rating));
+            usersRatingSortedList.Sort((t1, t2) => t1.Rating.CompareTo(t2.Rating));
             usersRatingSortedList.Reverse();
             s_WasAlgorithmActivated = true;
 
@@ -55,9 +53,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             foreach (Post post in i_Posts)
             {
-                FacebookObjectCollection<User> LikedByUsers = post.LikedBy;
+                FacebookObjectCollection<User> likedByUsers = post.LikedBy;
 
-                foreach (User user in LikedByUsers)
+                foreach (User user in likedByUsers)
                 {
                     if (user.Id != i_LoggedInUser.Id)
                     {

@@ -1,5 +1,4 @@
-﻿
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
@@ -12,42 +11,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private Settings()
         {
             m_IsRememberMeChecked = false;
-            m_UserAccessToken = "";
-        }
-
-        public string UserAccessToken
-        {
-            get
-            {
-                return m_UserAccessToken;
-            }
-            set
-            {
-                m_UserAccessToken = value;
-            }
-        }
-
-        public bool IsRememberMeChecked
-        {
-            get
-            {
-                return m_IsRememberMeChecked;
-            }
-            set
-            {
-                m_IsRememberMeChecked = value;
-            }
-        }
-
-        public void SaveSettingToFile()
-        {
-
-                using (Stream stream = new FileStream("App Settings.xml", FileMode.Create))
-                {
-                    XmlSerializer serializer = new XmlSerializer(this.GetType());
-                    serializer.Serialize(stream, this);
-                }
-
+            m_UserAccessToken = string.Empty;
         }
 
         public static Settings LoadSettingsFromFile()
@@ -63,9 +27,43 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     settings = serializer.Deserialize(stream) as Settings;
                 }
             }
-            
+
             return settings;
+        }
+
+        public string UserAccessToken
+        {
+            get
+            {
+                return m_UserAccessToken;
+            }
+
+            set
+            {
+                m_UserAccessToken = value;
+            }
+        }
+
+        public bool IsRememberMeChecked
+        {
+            get
+            {
+                return m_IsRememberMeChecked;
+            }
+
+            set
+            {
+                m_IsRememberMeChecked = value;
+            }
+        }
+
+        public void SaveSettingToFile()
+        {
+                using (Stream stream = new FileStream("App Settings.xml", FileMode.Create))
+                {
+                    XmlSerializer serializer = new XmlSerializer(this.GetType());
+                    serializer.Serialize(stream, this);
+                }
         }
     }
 }
-

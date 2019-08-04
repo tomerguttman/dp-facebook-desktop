@@ -1,5 +1,4 @@
-﻿
-using FacebookWrapper.ObjectModel;
+﻿using FacebookWrapper.ObjectModel;
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
@@ -14,6 +13,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 return m_User;
             }
+
             set
             {
                 m_User = value;
@@ -26,6 +26,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 return m_UserRating;
             }
+
             set
             {
                 m_UserRating = value;
@@ -37,6 +38,5 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             m_UserRating = 0;
             m_User = i_User;
         }
-
     }
 }
