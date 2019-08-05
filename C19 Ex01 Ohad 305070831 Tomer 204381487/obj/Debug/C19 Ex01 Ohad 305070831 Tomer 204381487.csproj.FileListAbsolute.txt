@@ -6,7 +6,6 @@ C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP
 C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csproj.GenerateResource.Cache
 C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.exe
 C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.pdb
-C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\bin\Debug\FbGraphApiWrapper.dll
 C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csprojAssemblyReference.cache
 C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19_Ex01_Ohad_305070831_Tomer_204381487.FacebookForm.resources
 C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19_Ex01_Ohad_305070831_Tomer_204381487.Properties.Resources.resources
@@ -19,4 +18,6 @@ C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 2
 C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\bin\Debug\Facebook.dll
 C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\bin\Debug\FbGraphApiWrapper.dll
 C:\Users\ohads\Desktop\GitHub\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csproj.CopyComplete
-C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csprojResolveAssemblyReference.cache
+C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csprojAssemblyReference.cache
+C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csproj.CoreCompileInputs.cache
+C:\Users\Tomer\Documents\Computer Science Programming\.NET Framework C#\Task1\DP_FacebookDesktop\C19 Ex01 Ohad 305070831 Tomer 204381487\obj\Debug\C19 Ex01 Ohad 305070831 Tomer 204381487.csproj.CopyComplete

@@ -39,7 +39,7 @@
             this.DateChoseListBox = new System.Windows.Forms.ListBox();
             this.FriendsListBox = new System.Windows.Forms.ListBox();
             this.PostsListBox = new System.Windows.Forms.ListBox();
-            this.MonthCalander = new System.Windows.Forms.MonthCalendar();
+            this.MonthCalendar = new System.Windows.Forms.MonthCalendar();
             this.BestFriendsTab = new System.Windows.Forms.TabPage();
             this.BestFriendsInformationLabel = new System.Windows.Forms.Label();
             this.FetchBestFriendsPhotosButton = new System.Windows.Forms.Button();
@@ -121,7 +121,7 @@
             this.GeneralDataTab.Controls.Add(this.DateChoseListBox);
             this.GeneralDataTab.Controls.Add(this.FriendsListBox);
             this.GeneralDataTab.Controls.Add(this.PostsListBox);
-            this.GeneralDataTab.Controls.Add(this.MonthCalander);
+            this.GeneralDataTab.Controls.Add(this.MonthCalendar);
             this.GeneralDataTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GeneralDataTab.Location = new System.Drawing.Point(4, 25);
             this.GeneralDataTab.Name = "GeneralDataTab";
@@ -212,13 +212,13 @@
             this.PostsListBox.TabIndex = 1;
             this.PostsListBox.SelectedIndexChanged += new System.EventHandler(this.PostsListBox_SelectedIndexChanged);
             // 
-            // MonthCalander
+            // MonthCalendar
             // 
-            this.MonthCalander.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MonthCalander.Location = new System.Drawing.Point(600, 44);
-            this.MonthCalander.Name = "MonthCalander";
-            this.MonthCalander.TabIndex = 0;
-            this.MonthCalander.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalander_DateChanged);
+            this.MonthCalendar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MonthCalendar.Location = new System.Drawing.Point(600, 44);
+            this.MonthCalendar.Name = "MonthCalendar";
+            this.MonthCalendar.TabIndex = 0;
+            this.MonthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalander_DateChanged);
             // 
             // BestFriendsTab
             // 
@@ -654,7 +654,7 @@
         private System.Windows.Forms.PictureBox CoverPhotoPictureBox;
         private System.Windows.Forms.Button FacebookLoginButton;
         private System.Windows.Forms.CheckBox RememberMeCheckbox;
-        private System.Windows.Forms.MonthCalendar MonthCalander;
+        private System.Windows.Forms.MonthCalendar MonthCalendar;
         private System.Windows.Forms.ListBox PostsListBox;
         private System.Windows.Forms.ListBox FriendsListBox;
         private System.Windows.Forms.ListBox DateChoseListBox;

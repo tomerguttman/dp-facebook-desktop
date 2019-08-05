@@ -359,7 +359,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             else
             {
                 this.deleteXmlFile();
-                FacebookService.Logout(new Action(voidFunction));
+
+                if (m_LoggedInUser != null)
+                {
+                     FacebookService.Logout(new Action(voidFunction));
+                }
             }
         }
 
