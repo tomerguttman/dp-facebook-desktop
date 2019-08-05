@@ -399,8 +399,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
                     {
                         updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
-                        this.label5.Font = new Font(label5.Font.FontFamily, 8f, FontStyle.Bold | FontStyle.Italic);
-                        this.label5.Text = "According to our calculations those are your ten best friends";
+                        this.BestFriendsInformationLabel.Font = new Font(BestFriendsInformationLabel.Font.FontFamily, 8f, FontStyle.Bold | FontStyle.Italic);
+                        this.BestFriendsInformationLabel.Text = "According to our calculations those are your ten best friends";
                     }
                 }
             }

@@ -41,7 +41,7 @@
             this.PostsListBox = new System.Windows.Forms.ListBox();
             this.MonthCalander = new System.Windows.Forms.MonthCalendar();
             this.BestFriendsTab = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
+            this.BestFriendsInformationLabel = new System.Windows.Forms.Label();
             this.FetchBestFriendsPhotosButton = new System.Windows.Forms.Button();
             this.UserPictureBox10 = new System.Windows.Forms.PictureBox();
             this.UserPictureBox9 = new System.Windows.Forms.PictureBox();
@@ -222,7 +222,7 @@
             // 
             // BestFriendsTab
             // 
-            this.BestFriendsTab.Controls.Add(this.label5);
+            this.BestFriendsTab.Controls.Add(this.BestFriendsInformationLabel);
             this.BestFriendsTab.Controls.Add(this.FetchBestFriendsPhotosButton);
             this.BestFriendsTab.Controls.Add(this.UserPictureBox10);
             this.BestFriendsTab.Controls.Add(this.UserPictureBox9);
@@ -242,15 +242,15 @@
             this.BestFriendsTab.Text = "Best Friends";
             this.BestFriendsTab.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // BestFriendsInformationLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(228, 367);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(391, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Click fetch and see who are your best friends";
+            this.BestFriendsInformationLabel.AutoSize = true;
+            this.BestFriendsInformationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BestFriendsInformationLabel.Location = new System.Drawing.Point(228, 367);
+            this.BestFriendsInformationLabel.Name = "BestFriendsInformationLabel";
+            this.BestFriendsInformationLabel.Size = new System.Drawing.Size(391, 20);
+            this.BestFriendsInformationLabel.TabIndex = 13;
+            this.BestFriendsInformationLabel.Text = "Click fetch and see who are your best friends";
             // 
             // FetchBestFriendsPhotosButton
             // 
@@ -675,7 +675,7 @@
         private System.Windows.Forms.PictureBox pickedFriendPictureBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TabPage CompareTab;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label BestFriendsInformationLabel;
         private System.Windows.Forms.Label UserBDAYLabelCompareTab;
         private System.Windows.Forms.Label FriendBDAYLabelCompareTab;
         private System.Windows.Forms.Label FriendAgeLabelCompareTab;
