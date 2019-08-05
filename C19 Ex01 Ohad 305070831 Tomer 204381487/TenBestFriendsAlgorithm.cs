@@ -9,7 +9,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public static List<UserRating> BestFriendsAlgorithm(User i_LoggedInUser)
         {
-            Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingList(i_LoggedInUser);
+            Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingDictionary(i_LoggedInUser);
             calculateFriendsRatingAndUpdate(friendsRatingDictionary, i_LoggedInUser);
             List<UserRating> usersRatingSortedList = convertDictionaryToList(friendsRatingDictionary);
             usersRatingSortedList.Sort((t1, t2) => t1.Rating.CompareTo(t2.Rating));
@@ -87,7 +87,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        private static Dictionary<string, UserRating> initializeUserRatingList(User i_LoggedInUser)
+        private static Dictionary<string, UserRating> initializeUserRatingDictionary(User i_LoggedInUser)
         {
             Dictionary<string, UserRating> o_InitializedUserRatingDictionary = new Dictionary<string, UserRating>();
 
