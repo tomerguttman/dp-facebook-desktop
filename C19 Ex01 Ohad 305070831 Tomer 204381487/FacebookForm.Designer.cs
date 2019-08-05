@@ -1,6 +1,6 @@
 ﻿namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
-    partial class FacebookForm
+    public partial class FacebookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -695,4 +696,3 @@
         private System.Windows.Forms.Button ExportToFileCompareTabButton;
     }
 }
-
