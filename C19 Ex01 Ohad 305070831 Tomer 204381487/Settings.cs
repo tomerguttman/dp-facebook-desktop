@@ -16,7 +16,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public static Settings LoadSettingsFromFile()
         {
-            Settings settings = new Settings();
+            Settings o_appSettings = new Settings();
 
             if (File.Exists("App Settings.xml"))
             {
@@ -24,11 +24,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 {
                     stream.Position = 0;
                     XmlSerializer serializer = new XmlSerializer(typeof(Settings));
-                    settings = serializer.Deserialize(stream) as Settings;
+                    o_appSettings = serializer.Deserialize(stream) as Settings;
                 }
             }
 
-            return settings;
+            return o_appSettings;
         }
 
         public string UserAccessToken

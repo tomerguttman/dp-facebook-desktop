@@ -171,11 +171,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             fetchCommentsFromSelectedPost(sender);
         }
 
-        private void fetchCommentsFromSelectedPost(object sender)
+        private void fetchCommentsFromSelectedPost(object i_Sender)
         {
             List<Post> userPostList = m_LoggedInUser.Posts.ToList<Post>();
             int postIndex = 0;
-            postIndex = getIndexOfPostInPostsList((sender as ListBox).SelectedItem as string);
+            postIndex = getIndexOfPostInPostsList((i_Sender as ListBox).SelectedItem as string);
             Post currentPost = userPostList[postIndex];
             Form commentsForm = new Form();
             ListBox postCommentsListBox = new ListBox();
@@ -435,10 +435,10 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void ExportToFileCompareTabButton_Click(object sender, EventArgs e)
         {
-            ExportToTextFile();
+            exportToTextFile();
         }
 
-        private void ExportToTextFile()
+        private void exportToTextFile()
         {
             string compareData = null;
             StreamWriter comparisonStreamWriter = null;
