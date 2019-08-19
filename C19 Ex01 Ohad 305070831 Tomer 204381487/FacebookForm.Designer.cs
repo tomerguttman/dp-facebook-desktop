@@ -29,6 +29,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label messageLabel;
+            System.Windows.Forms.Label messageLabel1;
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.GeneralDataTab = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -67,15 +70,25 @@
             this.UserAgeLabelCompareTab = new System.Windows.Forms.Label();
             this.FriendNameLabelCompareTab = new System.Windows.Forms.Label();
             this.UserNameLabelCompareTab = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.FriendsListBoxCompareTab = new System.Windows.Forms.ListBox();
             this.UserPictureBoxCompareTab = new System.Windows.Forms.PictureBox();
             this.FriendPictureBoxCompareTab = new System.Windows.Forms.PictureBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.messageListBox = new System.Windows.Forms.ListBox();
+            this.commentsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.postDataGridView = new System.Windows.Forms.DataGridView();
             this.ProfilePictureBox = new System.Windows.Forms.PictureBox();
             this.CoverPhotoPictureBox = new System.Windows.Forms.PictureBox();
             this.FacebookLoginButton = new System.Windows.Forms.Button();
             this.RememberMeCheckbox = new System.Windows.Forms.CheckBox();
+            this.messageTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            messageLabel = new System.Windows.Forms.Label();
+            messageLabel1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.GeneralDataTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pickedFriendPictureBox)).BeginInit();
@@ -93,9 +106,23 @@
             this.CompareTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBoxCompareTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FriendPictureBoxCompareTab)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoverPhotoPictureBox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // messageLabel
+            // 
+            messageLabel.AutoSize = true;
+            messageLabel.Location = new System.Drawing.Point(397, 285);
+            messageLabel.Name = "messageLabel";
+            messageLabel.Size = new System.Drawing.Size(78, 17);
+            messageLabel.TabIndex = 1;
+            messageLabel.Text = "Comments:";
             // 
             // tabControl1
             // 
@@ -105,10 +132,11 @@
             this.tabControl1.Controls.Add(this.GeneralDataTab);
             this.tabControl1.Controls.Add(this.BestFriendsTab);
             this.tabControl1.Controls.Add(this.CompareTab);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(-6, 131);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(920, 444);
+            this.tabControl1.Size = new System.Drawing.Size(951, 444);
             this.tabControl1.TabIndex = 0;
             // 
             // GeneralDataTab
@@ -126,7 +154,7 @@
             this.GeneralDataTab.Location = new System.Drawing.Point(4, 25);
             this.GeneralDataTab.Name = "GeneralDataTab";
             this.GeneralDataTab.Padding = new System.Windows.Forms.Padding(3);
-            this.GeneralDataTab.Size = new System.Drawing.Size(912, 415);
+            this.GeneralDataTab.Size = new System.Drawing.Size(943, 415);
             this.GeneralDataTab.TabIndex = 0;
             this.GeneralDataTab.Text = "General Data";
             this.GeneralDataTab.UseVisualStyleBackColor = true;
@@ -215,7 +243,7 @@
             // MonthCalendar
             // 
             this.MonthCalendar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.MonthCalendar.Location = new System.Drawing.Point(600, 44);
+            this.MonthCalendar.Location = new System.Drawing.Point(615, 44);
             this.MonthCalendar.Name = "MonthCalendar";
             this.MonthCalendar.TabIndex = 0;
             this.MonthCalendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalander_DateChanged);
@@ -237,7 +265,7 @@
             this.BestFriendsTab.Location = new System.Drawing.Point(4, 25);
             this.BestFriendsTab.Name = "BestFriendsTab";
             this.BestFriendsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.BestFriendsTab.Size = new System.Drawing.Size(912, 415);
+            this.BestFriendsTab.Size = new System.Drawing.Size(943, 415);
             this.BestFriendsTab.TabIndex = 1;
             this.BestFriendsTab.Text = "Best Friends";
             this.BestFriendsTab.UseVisualStyleBackColor = true;
@@ -377,15 +405,13 @@
             this.CompareTab.Controls.Add(this.UserAgeLabelCompareTab);
             this.CompareTab.Controls.Add(this.FriendNameLabelCompareTab);
             this.CompareTab.Controls.Add(this.UserNameLabelCompareTab);
-            this.CompareTab.Controls.Add(this.label7);
-            this.CompareTab.Controls.Add(this.label6);
             this.CompareTab.Controls.Add(this.FriendsListBoxCompareTab);
             this.CompareTab.Controls.Add(this.UserPictureBoxCompareTab);
             this.CompareTab.Controls.Add(this.FriendPictureBoxCompareTab);
             this.CompareTab.Location = new System.Drawing.Point(4, 25);
             this.CompareTab.Name = "CompareTab";
             this.CompareTab.Padding = new System.Windows.Forms.Padding(3);
-            this.CompareTab.Size = new System.Drawing.Size(912, 415);
+            this.CompareTab.Size = new System.Drawing.Size(943, 415);
             this.CompareTab.TabIndex = 2;
             this.CompareTab.Text = "Compare";
             this.CompareTab.UseVisualStyleBackColor = true;
@@ -510,24 +536,6 @@
             this.UserNameLabelCompareTab.Text = "-";
             this.UserNameLabelCompareTab.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(611, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(209, 17);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "FriendsNameLabelCompareTab";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(83, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(192, 17);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "UserNameCompareLabelTab";
-            // 
             // FriendsListBoxCompareTab
             // 
             this.FriendsListBoxCompareTab.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -559,6 +567,67 @@
             this.FriendPictureBoxCompareTab.TabIndex = 0;
             this.FriendPictureBoxCompareTab.TabStop = false;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.AutoScroll = true;
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(943, 415);
+            this.tabPage1.TabIndex = 3;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Turquoise;
+            this.panel1.Controls.Add(messageLabel1);
+            this.panel1.Controls.Add(this.messageTextBox);
+            this.panel1.Controls.Add(messageLabel);
+            this.panel1.Controls.Add(this.messageListBox);
+            this.panel1.Controls.Add(this.postDataGridView);
+            this.panel1.Location = new System.Drawing.Point(6, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(948, 425);
+            this.panel1.TabIndex = 0;
+            // 
+            // messageListBox
+            // 
+            this.messageListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.commentsBindingSource, "Message", true));
+            this.messageListBox.DataSource = this.commentsBindingSource;
+            this.messageListBox.DisplayMember = "Message";
+            this.messageListBox.FormattingEnabled = true;
+            this.messageListBox.ItemHeight = 16;
+            this.messageListBox.Location = new System.Drawing.Point(0, 305);
+            this.messageListBox.Name = "messageListBox";
+            this.messageListBox.Size = new System.Drawing.Size(928, 100);
+            this.messageListBox.TabIndex = 2;
+            // 
+            // commentsBindingSource
+            // 
+            this.commentsBindingSource.DataMember = "Comments";
+            this.commentsBindingSource.DataSource = this.postBindingSource;
+            // 
+            // postBindingSource
+            // 
+            this.postBindingSource.DataSource = typeof(FacebookWrapper.ObjectModel.Post);
+            // 
+            // postDataGridView
+            // 
+            this.postDataGridView.AutoGenerateColumns = false;
+            this.postDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.postDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn14});
+            this.postDataGridView.DataSource = this.postBindingSource;
+            this.postDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.postDataGridView.Name = "postDataGridView";
+            this.postDataGridView.RowTemplate.Height = 24;
+            this.postDataGridView.Size = new System.Drawing.Size(925, 220);
+            this.postDataGridView.TabIndex = 0;
+            // 
             // ProfilePictureBox
             // 
             this.ProfilePictureBox.Enabled = false;
@@ -577,7 +646,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CoverPhotoPictureBox.Location = new System.Drawing.Point(-2, -2);
             this.CoverPhotoPictureBox.Name = "CoverPhotoPictureBox";
-            this.CoverPhotoPictureBox.Size = new System.Drawing.Size(916, 164);
+            this.CoverPhotoPictureBox.Size = new System.Drawing.Size(947, 164);
             this.CoverPhotoPictureBox.TabIndex = 2;
             this.CoverPhotoPictureBox.TabStop = false;
             // 
@@ -603,11 +672,50 @@
             this.RememberMeCheckbox.Text = "Remember me";
             this.RememberMeCheckbox.UseVisualStyleBackColor = false;
             // 
+            // messageLabel1
+            // 
+            messageLabel1.AutoSize = true;
+            messageLabel1.Location = new System.Drawing.Point(21, 250);
+            messageLabel1.Name = "messageLabel1";
+            messageLabel1.Size = new System.Drawing.Size(69, 17);
+            messageLabel1.TabIndex = 3;
+            messageLabel1.Text = "Message:";
+            // 
+            // messageTextBox
+            // 
+            this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "No information given."));
+            this.messageTextBox.Location = new System.Drawing.Point(96, 247);
+            this.messageTextBox.Name = "messageTextBox";
+            this.messageTextBox.Size = new System.Drawing.Size(772, 22);
+            this.messageTextBox.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Message";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Message";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "UpdateTime";
+            this.dataGridViewTextBoxColumn11.HeaderText = "UpdateTime";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "CreatedTime";
+            this.dataGridViewTextBoxColumn14.HeaderText = "CreatedTime";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
             // FacebookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(907, 573);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(938, 573);
             this.Controls.Add(this.RememberMeCheckbox);
             this.Controls.Add(this.FacebookLoginButton);
             this.Controls.Add(this.ProfilePictureBox);
@@ -638,6 +746,12 @@
             this.CompareTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBoxCompareTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FriendPictureBoxCompareTab)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.postDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProfilePictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoverPhotoPictureBox)).EndInit();
             this.ResumeLayout(false);
@@ -682,8 +796,6 @@
         private System.Windows.Forms.Label UserAgeLabelCompareTab;
         private System.Windows.Forms.Label FriendNameLabelCompareTab;
         private System.Windows.Forms.Label UserNameLabelCompareTab;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox FriendsListBoxCompareTab;
         private System.Windows.Forms.PictureBox UserPictureBoxCompareTab;
         private System.Windows.Forms.PictureBox FriendPictureBoxCompareTab;
@@ -694,5 +806,15 @@
         private System.Windows.Forms.Label AgeParameter;
         private System.Windows.Forms.Label FullNameParameter;
         private System.Windows.Forms.Button ExportToFileCompareTabButton;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView postDataGridView;
+        private System.Windows.Forms.BindingSource postBindingSource;
+        private System.Windows.Forms.ListBox messageListBox;
+        private System.Windows.Forms.BindingSource commentsBindingSource;
+        private System.Windows.Forms.TextBox messageTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
     }
 }

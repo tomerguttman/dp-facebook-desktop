@@ -100,6 +100,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
             addFriendsToListBox();
             addPostsToListBox();
+
+            postBindingSource.DataSource = m_LoggedInUser.Posts;///////////////////////////////
         }
 
         private void addPostsToListBox()
@@ -470,7 +472,6 @@ this.FriendHomeTownLabelCompareTab.Text);
             using (comparisonStreamWriter)
             {
                 comparisonStreamWriter.WriteLine(compareData);
-
                 comparisonStreamWriter.Close();
             }
         }
