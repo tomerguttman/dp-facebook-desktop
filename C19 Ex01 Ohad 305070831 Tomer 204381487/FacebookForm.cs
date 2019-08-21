@@ -398,18 +398,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void tenBestFriendsAlgorithm()
         {
-            if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
-            {
-                lock (r_TenBestFriendsAlgorithmContext)
-                {
-                    if (!TenBestFriendsAlgorithm.WasAlgorithmActivated)
-                    {
-                        updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.BestFriendsAlgorithm(m_LoggedInUser));
-                        this.BestFriendsInformationLabel.Font = new Font(BestFriendsInformationLabel.Font.FontFamily, 8f, FontStyle.Bold | FontStyle.Italic);
-                        this.BestFriendsInformationLabel.Text = "According to our calculations those are your ten best friends";
-                    }
-                }
-            }
+            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.Instance.BestFriendsAlgorithm(m_LoggedInUser));
+            this.BestFriendsInformationLabel.Font = new Font(BestFriendsInformationLabel.Font.FontFamily, 8f, FontStyle.Bold | FontStyle.Italic);
+            this.BestFriendsInformationLabel.Text = "According to our calculations those are your ten best friends";
         }
 
         private void updatePicturesInTenBestFriendsTab(List<UserRating> i_UsersRatingSortedList)
