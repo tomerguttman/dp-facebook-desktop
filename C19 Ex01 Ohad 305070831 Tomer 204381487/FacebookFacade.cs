@@ -1,18 +1,14 @@
 ﻿using System.Drawing;
-using System.Xml.Serialization;
-using System.IO;
-using System.Collections.Generic;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-using System;
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     public class FacebookFacade
     {
         private User m_LoggedInUser;
-        private LoginResult m_LoginResult;
         private Settings m_UserSettings;
+        private CachedUser m_CashedUser;
         private bool m_IsLoggedIn = false;
 
         public bool IsLoggedIn { get { return m_IsLoggedIn; } set { m_IsLoggedIn = value; } }
@@ -20,6 +16,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         public FacebookFacade()
         {
             LoadSettingsFromFile();
+
             if (!string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
             {
                 ConnectToFacebook();
@@ -36,8 +33,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             if (m_UserSettings.IsRememberMeChecked)
             {
-                m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
+                m_CashedUser = FacebookCacheProxy.FacebookConnect(m_UserSettings.UserAccessToken);//FacebookService.Connect(m_UserSettings.UserAccessToken);
+                m_LoggedInUser = m_CashedUser.M_CachedUser;
                 IsLoggedIn = true;
             }
         }
@@ -55,31 +52,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         public bool LoginToFacebook()
         {
             // Our appid:415704425731459
-            m_LoginResult = FacebookService.Login(
-                "1450160541956417",
-                "public_profile",
-                "email",
-                "publish_to_groups",
-                "user_birthday",
-                "user_age_range",
-                "user_gender",
-                "user_link",
-                "user_tagged_places",
-                "user_videos",
-                "publish_to_groups",
-                "groups_access_member_info",
-                "user_friends",
-                "user_events",
-                "user_likes",
-                "user_location",
-                "user_photos",
-                "user_posts",
-                "user_hometown");
+            m_CashedUser = FacebookCacheProxy.FacebookLogin();
 
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            if (!string.IsNullOrEmpty(m_CashedUser.M_AccessToken))
             {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
-                m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
+                m_LoggedInUser = m_CashedUser.M_CachedUser;
+                m_UserSettings.UserAccessToken = m_CashedUser.M_AccessToken;
                 IsLoggedIn = true;
             }
 
@@ -134,12 +112,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public void Logout()
         {
-            FacebookService.Logout(new Action(voidFunction));
-        }
-
-        private void voidFunction()
-        {
-            // this method is empty according to the Logout method needs.
+            FacebookCacheProxy.Logout();
         }
 
         public void SaveSettingToFile()

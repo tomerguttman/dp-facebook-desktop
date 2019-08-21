@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Threading;
 using FacebookWrapper.ObjectModel;
-using FacebookWrapper;
+
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {

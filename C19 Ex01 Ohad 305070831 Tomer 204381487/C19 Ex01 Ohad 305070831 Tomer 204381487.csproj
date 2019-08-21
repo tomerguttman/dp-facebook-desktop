@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachedUser.cs" />
+    <Compile Include="FacebookCacheProxy.cs" />
     <Compile Include="FacebookFacade.cs" />
     <Compile Include="FacebookForm.cs">
       <SubType>Form</SubType>
