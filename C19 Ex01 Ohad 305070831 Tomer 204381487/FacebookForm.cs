@@ -13,18 +13,19 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
     public partial class FacebookForm : Form
     {
         private const int k_BestFriendsLimit = 10;
-        private readonly object r_TenBestFriendsAlgorithmContext = new object();
-        private User m_LoggedInUser;
-        private Settings m_UserSettings;
-        private LoginResult m_LoginResult;
+        private FacebookFacade m_Facade = null;
+        //private User m_LoggedInUser;
+       // private Settings m_UserSettings;
+       // private LoginResult m_LoginResult;
 
         public FacebookForm()
         {
             try
             {
-                m_UserSettings = Settings.LoadSettingsFromFile();
+                //m_UserSettings = Settings.LoadSettingsFromFile();
+                m_Facade = new FacebookFacade();
                 InitializeComponent();
-                this.RememberMeCheckbox.Checked = m_UserSettings.IsRememberMeChecked;
+                this.RememberMeCheckbox.Checked = m_Facade.IsRememberMeChecked();
             }
             catch
             {
@@ -36,32 +37,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             try
             {
-                // Our appid:415704425731459
-                m_LoginResult = FacebookService.Login(
-                    "1450160541956417",
-                    "public_profile",
-                    "email",
-                    "publish_to_groups",
-                    "user_birthday",
-                    "user_age_range",
-                    "user_gender",
-                    "user_link",
-                    "user_tagged_places",
-                    "user_videos",
-                    "publish_to_groups",
-                    "groups_access_member_info",
-                    "user_friends",
-                    "user_events",
-                    "user_likes",
-                    "user_location",
-                    "user_photos",
-                    "user_posts",
-                    "user_hometown");
-
-                if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+                //LoginToFacebook returns whether or not the login was successful.
+                if (m_Facade.LoginToFacebook())
                 {
-                    m_LoggedInUser = m_LoginResult.LoggedInUser;
-                    m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
                     updateFormData();
                     this.FacebookLoginButton.Enabled = false;
                 }
@@ -75,10 +53,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private void updateFormData()
         {
             int userAge = 0;
+            string loggedInUserBirthday = m_Facade.GetBirthday();
 
-            if (m_LoggedInUser.Birthday != null && m_LoggedInUser.Birthday.Length == 10)
+            if (loggedInUserBirthday != null && loggedInUserBirthday.Length == 10)
             {
-                if (int.TryParse(m_LoggedInUser.Birthday.Remove(0, 6), out userAge))
+                if (int.TryParse(loggedInUserBirthday.Remove(0, 6), out userAge))
                 {
                     userAge = DateTime.Today.Year - userAge;
                     FriendAgeLabelCompareTab.Text = string.Format("{0}", userAge);
@@ -89,32 +68,30 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 FriendAgeLabelCompareTab.Text = "Unknown";
             }
 
-            this.ProfilePictureBox.Image = m_LoggedInUser.ImageNormal;
-            this.UserPictureBoxCompareTab.Image = m_LoggedInUser.ImageNormal;
-            this.UserNameLabelCompareTab.Text = m_LoggedInUser.Name;
+            this.ProfilePictureBox.Image = this.UserPictureBoxCompareTab.Image = m_Facade.GetProfileImage();
+            this.Text = this.UserNameLabelCompareTab.Text = m_Facade.GetName();
             this.UserAgeLabelCompareTab.Text = string.Format("{0}", userAge);
-            this.UserBDAYLabelCompareTab.Text = m_LoggedInUser.Birthday;
+            this.UserBDAYLabelCompareTab.Text = loggedInUserBirthday;
 
             // this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;  Throwing an exception - data cannot be retrieved.
-            this.Text = m_LoggedInUser.Name;
-            this.CoverPhotoPictureBox.BackgroundImage = m_LoggedInUser.Albums[0].Photos[0].ImageNormal;
+            this.CoverPhotoPictureBox.BackgroundImage = m_Facade.GetCoverImage();
             addFriendsToListBox();
-            addPostsToListBox();
+            //addPostsToListBox();
 
-            postBindingSource.DataSource = m_LoggedInUser.Posts;///////////////////////////////
+            postBindingSource.DataSource = m_Facade.GetPosts();///////////////////////////////
         }
 
-        private void addPostsToListBox()
-        {
-            foreach (Post post in m_LoggedInUser.Posts)
-            {
-                PostsListBox.Items.Add(string.Format("{0} {1}", post.Message, post.CreatedTime.Value.ToShortDateString()));
-            }
-        }
+        //private void addPostsToListBox()
+        //{
+        //    foreach (Post post in m_LoggedInUser.Posts)
+        //    {
+        //        PostsListBox.Items.Add(string.Format("{0} {1}", post.Message, post.CreatedTime.Value.ToShortDateString()));
+        //    }
+        //}
 
         private void addFriendsToListBox()
         {
-            foreach (User friend in m_LoggedInUser.Friends)
+            foreach (User friend in m_Facade.GetFriends())
             {
                 FriendsListBox.Items.Add(friend.Name);
                 FriendsListBoxCompareTab.Items.Add(friend.Name);
@@ -126,31 +103,24 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             DateChoseListBox.Items.Clear();
             DateTime currentDate = e.Start;
             string shortCurrentDate = currentDate.ToShortDateString().Remove(0, 5);
+            string loggedInUserBirthday = null;
+            FacebookObjectCollection<Event> loggedInUserEvents = null;
+            FacebookObjectCollection<User> loggedInUserFriends = null;
 
-            if (m_LoggedInUser != null )
+            if (m_Facade.IsLoggedIn)
             {
                 try
                 {
-                    if (shortCurrentDate == m_LoggedInUser.Birthday.Remove(0, 5))
+                    loggedInUserBirthday = m_Facade.GetBirthday();
+                    loggedInUserEvents = m_Facade.GetEvents();
+                    loggedInUserFriends = m_Facade.GetFriends();
+
+                    if (shortCurrentDate == loggedInUserBirthday.Remove(0, 5))
                     {
                         DateChoseListBox.Items.Add("Happy Birthday to YOU!!");
                     }
 
-                    foreach (Event currentEvent in m_LoggedInUser.Events)
-                    {
-                        if (currentEvent.StartTime.Value.ToShortDateString().Remove(0, 5) == shortCurrentDate)
-                        {
-                            this.DateChoseListBox.Items.Add(currentEvent.Name);
-                        }
-                    }
-
-                    foreach (User friend in m_LoggedInUser.Friends)
-                    {
-                        if (friend.Birthday.Remove(0, 5) == shortCurrentDate)
-                        {
-                            this.DateChoseListBox.Items.Add(friend.Name + "'s Birthday");
-                        }
-                    }
+                    updateListBoxes(shortCurrentDate, loggedInUserEvents, loggedInUserFriends);
 
                     if (DateChoseListBox.Items.Count == 0)
                     {
@@ -168,6 +138,25 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
+        private void updateListBoxes(string i_ShortCurrentDate, FacebookObjectCollection<Event> i_UserEvents, FacebookObjectCollection<User> i_UserFriends)
+        {
+            foreach (Event currentEvent in i_UserEvents)
+            {
+                if (currentEvent.StartTime.Value.ToShortDateString().Remove(0, 5) == i_ShortCurrentDate)
+                {
+                    this.DateChoseListBox.Items.Add(currentEvent.Name);
+                }
+            }
+
+            foreach (User friend in i_UserFriends)
+            {
+                if (friend.Birthday.Remove(0, 5) == i_ShortCurrentDate)
+                {
+                    this.DateChoseListBox.Items.Add(friend.Name + "'s Birthday");
+                }
+            }
+        }
+
         private void PostsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             fetchCommentsFromSelectedPost(sender);
@@ -175,7 +164,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void fetchCommentsFromSelectedPost(object i_Sender)
         {
-            List<Post> userPostList = m_LoggedInUser.Posts.ToList<Post>();
+            List<Post> userPostList = m_Facade.GetPosts().ToList<Post>();
             int postIndex = 0;
             postIndex = getIndexOfPostInPostsList((i_Sender as ListBox).SelectedItem as string);
             Post currentPost = userPostList[postIndex];
@@ -210,10 +199,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             int o_OutputIndex = 0;
             string temporaryString = null;
+            FacebookObjectCollection<Post> loggedInUserPosts = m_Facade.GetPosts();
 
             try
             {
-                foreach (Post currentPost in m_LoggedInUser.Posts)
+                foreach (Post currentPost in loggedInUserPosts)
                 {
                     temporaryString = currentPost.Message + " " + currentPost.CreatedTime.Value.ToShortDateString();
 
@@ -236,10 +226,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private int getIndexOfUserInFriendList(string i_StringUserName)
         {
             int o_OutputIndex = 0;
+            FacebookObjectCollection<User> loggedInUserFriends = m_Facade.GetFriends();
 
             try
             {
-                foreach (User currentFriend in m_LoggedInUser.Friends)
+                foreach (User currentFriend in loggedInUserFriends)
                 {
                     if (currentFriend.Name.Equals(i_StringUserName))
                     {
@@ -270,7 +261,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
             try
             {
-                friendsList = m_LoggedInUser.Friends.ToList<User>();
+                friendsList = m_Facade.GetFriends().ToList<User>();
                 postIndex = getIndexOfUserInFriendList((sender as ListBox).SelectedItem as string);
                 currentFriend = friendsList[postIndex];
 
@@ -319,17 +310,10 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 base.OnShown(e);
 
-                if (m_UserSettings.IsRememberMeChecked && !string.IsNullOrEmpty(m_UserSettings.UserAccessToken))
+                if (m_Facade.IsLoggedIn)
                 {
-                    m_LoginResult = FacebookService.Connect(m_UserSettings.UserAccessToken);
-                    m_UserSettings.UserAccessToken = m_LoginResult.AccessToken;
-                    m_LoggedInUser = m_LoginResult.LoggedInUser;
                     updateFormData();
-
-                    if(m_LoggedInUser != null)
-                    {
-                        this.FacebookLoginButton.Enabled = false;
-                    }
+                    this.FacebookLoginButton.Enabled = false;
                 }
             }
             catch
@@ -355,30 +339,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             if (this.RememberMeCheckbox.Checked)
             {
-                m_UserSettings.IsRememberMeChecked = true;
-                m_UserSettings.SaveSettingToFile();
+                m_Facade.UpdateRemeberMeSettings();
+                m_Facade.SaveSettingToFile();
             }
             else
             {
-                this.deleteXmlFile();
+                m_Facade.deleteXmlFile();
 
-                if (m_LoggedInUser != null)
+                if (m_Facade.IsLoggedIn)
                 {
-                     FacebookService.Logout(new Action(voidFunction));
+                     m_Facade.Logout();
                 }
-            }
-        }
-
-        private void voidFunction()
-        {
-            // this method is empty according to the Logout method needs.
-        }
-
-        private void deleteXmlFile()
-        {
-            if (File.Exists("App Settings.xml"))
-            {
-                File.Delete("App Settings.xml");
             }
         }
 
@@ -398,7 +369,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private void tenBestFriendsAlgorithm()
         {
-            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.Instance.BestFriendsAlgorithm(m_LoggedInUser));
+            updatePicturesInTenBestFriendsTab(TenBestFriendsAlgorithm.Instance.BestFriendsAlgorithm(m_Facade));
             this.BestFriendsInformationLabel.Font = new Font(BestFriendsInformationLabel.Font.FontFamily, 8f, FontStyle.Bold | FontStyle.Italic);
             this.BestFriendsInformationLabel.Text = "According to our calculations those are your ten best friends";
         }

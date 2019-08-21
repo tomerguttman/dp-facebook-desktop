@@ -65,5 +65,14 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     serializer.Serialize(stream, this);
                 }
         }
+
+        public void deleteXmlFile()
+        {
+            if (File.Exists("App Settings.xml"))
+            {
+                File.Delete("App Settings.xml");
+            }
+        }
+
     }
 }

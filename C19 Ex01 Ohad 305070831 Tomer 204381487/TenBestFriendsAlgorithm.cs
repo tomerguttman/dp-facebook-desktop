@@ -29,10 +29,10 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        public  List<UserRating> BestFriendsAlgorithm(User i_LoggedInUser)
+        public  List<UserRating> BestFriendsAlgorithm(FacebookFacade i_Facade)
         {
-            Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingDictionary(i_LoggedInUser);
-            calculateFriendsRatingAndUpdate(friendsRatingDictionary, i_LoggedInUser);
+            Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingDictionary(i_Facade);
+            calculateFriendsRatingAndUpdate(friendsRatingDictionary, i_Facade);
             List<UserRating> usersRatingSortedList = convertDictionaryToList(friendsRatingDictionary);
             usersRatingSortedList.Sort((t1, t2) => t1.Rating.CompareTo(t2.Rating));
             usersRatingSortedList.Reverse();
@@ -53,19 +53,19 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             return o_UsersRatingSortedList;
         }
 
-        private  void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary, User i_LoggedInUser)
+        private  void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary, FacebookFacade i_Facade)
         {
-            updateFriendsRatingUsingLikes(i_FriendsRatingDictionary, i_LoggedInUser);
-            updateFriendsRatingUsingComments(i_FriendsRatingDictionary, i_LoggedInUser);
+            updateFriendsRatingUsingLikes(i_FriendsRatingDictionary, i_Facade);
+            updateFriendsRatingUsingComments(i_FriendsRatingDictionary, i_Facade);
         }
 
-        private  void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary, User i_LoggedInUser)
+        private  void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookFacade i_Facade)
         {
-            updateUserRatingLikedPosts(io_FriendsRatingDictionary, i_LoggedInUser.WallPosts, i_LoggedInUser);
-            updateUserRatingLikedPosts(io_FriendsRatingDictionary, i_LoggedInUser.Posts, i_LoggedInUser);
+            updateUserRatingLikedPosts(io_FriendsRatingDictionary, i_Facade.GetWallPosts(), i_Facade.GetID());
+            updateUserRatingLikedPosts(io_FriendsRatingDictionary, i_Facade.GetPosts(), i_Facade.GetID());
         }
 
-        private  void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, User i_LoggedInUser)
+        private  void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, string i_UserId)
         {
             foreach (Post post in i_Posts)
             {
@@ -73,7 +73,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
                 foreach (User user in likedByUsers)
                 {
-                    if (user.Id != i_LoggedInUser.Id)
+                    if (user.Id != i_UserId)
                     {
                         io_FriendsRatingDictionary[user.Id].Rating += 1;
                     }
@@ -81,13 +81,13 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        private  void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary, User i_LoggedInUser)
+        private  void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookFacade i_Facade)
         {
-            updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, i_LoggedInUser.WallPosts, i_LoggedInUser);
-            updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, i_LoggedInUser.Posts, i_LoggedInUser);
+            updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, i_Facade.GetWallPosts(), i_Facade.GetID());
+            updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, i_Facade.GetPosts(), i_Facade.GetID());
         }
 
-        private  void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, User i_LoggedInUser)
+        private  void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, string i_UserId)
         {
             foreach (Post post in i_Posts)
             {
@@ -95,7 +95,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
                 foreach (Comment comment in commentedByUsers)
                 {
-                    if (comment.From.Id != i_LoggedInUser.Id)
+                    if (comment.From.Id != i_UserId)
                     {
                         io_FriendsRatingDictionary[comment.From.Id].Rating += 1;
                     }
@@ -103,11 +103,12 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        private  Dictionary<string, UserRating> initializeUserRatingDictionary(User i_LoggedInUser)
+        private  Dictionary<string, UserRating> initializeUserRatingDictionary(FacebookFacade i_Facade)
         {
             Dictionary<string, UserRating> o_InitializedUserRatingDictionary = new Dictionary<string, UserRating>();
+            FacebookObjectCollection<User> userFriends = i_Facade.GetFriends();
 
-            foreach (User user in i_LoggedInUser.Friends)
+            foreach (User user in userFriends)
             {
                 o_InitializedUserRatingDictionary.Add(user.Id, new UserRating(user));
             }
