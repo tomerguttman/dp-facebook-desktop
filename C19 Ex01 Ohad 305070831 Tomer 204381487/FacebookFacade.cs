@@ -33,8 +33,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             if (m_UserSettings.IsRememberMeChecked)
             {
-                m_CashedUser = FacebookCacheProxy.FacebookConnect(m_UserSettings.UserAccessToken);//FacebookService.Connect(m_UserSettings.UserAccessToken);
-                m_LoggedInUser = m_CashedUser.M_CachedUser;
+                m_LoggedInUser = FacebookCacheProxy.FacebookConnect(m_UserSettings.UserAccessToken, out m_CashedUser);
                 IsLoggedIn = true;
             }
         }
@@ -52,12 +51,11 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         public bool LoginToFacebook()
         {
             // Our appid:415704425731459
-            m_CashedUser = FacebookCacheProxy.FacebookLogin();
+            m_LoggedInUser = FacebookCacheProxy.FacebookLogin(out m_CashedUser);
 
-            if (!string.IsNullOrEmpty(m_CashedUser.M_AccessToken))
+            if (m_LoggedInUser != null)
             {
-                m_LoggedInUser = m_CashedUser.M_CachedUser;
-                m_UserSettings.UserAccessToken = m_CashedUser.M_AccessToken;
+                m_UserSettings.UserAccessToken = m_CashedUser.AccessToken;
                 IsLoggedIn = true;
             }
 

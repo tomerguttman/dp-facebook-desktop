@@ -117,28 +117,1447 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;RememberMeCheckbox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="ExportToFileCompareTabButton.Text" xml:space="preserve">
+    <value>Export to file</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="FriendsListBoxCompareTab.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox9.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="&gt;&gt;DateChoseListBox.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;commentsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="UserPictureBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 56</value>
+  </data>
+  <data name="FriendNameLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="BirthdayParameter.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="FriendHomeTownLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="postDataGridView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>925, 220</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="FriendHomeTownLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 362</value>
+  </data>
+  <data name="RememberMeCheckbox.Text" xml:space="preserve">
+    <value>Remember me</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>938, 573</value>
+  </data>
+  <data name="&gt;&gt;MonthCalendar.Name" xml:space="preserve">
+    <value>MonthCalendar</value>
+  </data>
+  <data name="&gt;&gt;FullNameParameter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CoverPhotoPictureBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="UserPictureBox5.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="UserPictureBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="&gt;&gt;ExportToFileCompareTabButton.Name" xml:space="preserve">
+    <value>ExportToFileCompareTabButton</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsInformationLabel.Name" xml:space="preserve">
+    <value>BestFriendsInformationLabel</value>
+  </data>
+  <data name="FriendBDAYLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="messageListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="GeneralDataTab.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.2pt</value>
+  </data>
+  <data name="UserPictureBoxCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 44</value>
+  </data>
+  <data name="UserAgeLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="&gt;&gt;postDataGridView.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;messageLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="UserPictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FriendHomeTownLabelCompareTab.Name" xml:space="preserve">
+    <value>FriendHomeTownLabelCompareTab</value>
+  </data>
+  <data name="tabPage1.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="MonthCalendar.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserNameLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="UserPictureBox9.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="FullNameParameter.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="UserHomeTownLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="tabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="UserPictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 56</value>
+  </data>
+  <data name="DateChoseListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>600, 248</value>
+  </data>
+  <data name="&gt;&gt;messageTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsTab.Name" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="UserPictureBoxCompareTab.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>708, 236</value>
+  </data>
+  <data name="messageListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 305</value>
+  </data>
+  <data name="BestFriendsInformationLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;HometownParameter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn14.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;PostsListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn1</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;CoverPhotoPictureBox.Name" xml:space="preserve">
+    <value>CoverPhotoPictureBox</value>
+  </data>
+  <data name="BirthdayParameter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AgeParameter.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;UserAgeLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="pickedFriendPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 222</value>
+  </data>
+  <data name="GeneralDataTab.Text" xml:space="preserve">
+    <value>General Data</value>
+  </data>
+  <data name="UserPictureBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="MonthCalendar.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;FriendPictureBoxCompareTab.Name" xml:space="preserve">
+    <value>FriendPictureBoxCompareTab</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Bookface ;)</value>
+  </data>
+  <data name="&gt;&gt;postDataGridView.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox7.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="BirthdayParameter.Text" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="HometownParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 362</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBoxCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="postDataGridView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="UserPictureBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 206</value>
+  </data>
+  <data name="messageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 17</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 3</value>
+  </data>
+  <data name="&gt;&gt;FetchBestFriendsPhotosButton.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-6, 131</value>
+  </data>
+  <data name="&gt;&gt;pickedFriendPictureBox.Name" xml:space="preserve">
+    <value>pickedFriendPictureBox</value>
+  </data>
+  <data name="UserPictureBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 56</value>
+  </data>
+  <data name="UserPictureBox7.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="UserBDAYLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 322</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;RememberMeCheckbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="DateChoseListBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="&gt;&gt;ExportToFileCompareTabButton.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="FriendsListBoxCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 191</value>
+  </data>
+  <data name="&gt;&gt;FriendAgeLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox10.Name" xml:space="preserve">
+    <value>UserPictureBox10</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox10.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;pickedFriendPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FriendsListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 44</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="messageTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 247</value>
+  </data>
+  <data name="&gt;&gt;GeneralDataTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="FriendNameLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;ExportToFileCompareTabButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox7.Name" xml:space="preserve">
+    <value>UserPictureBox7</value>
+  </data>
+  <data name="CoverPhotoPictureBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;DateChoseListBox.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 18</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn14.HeaderText" xml:space="preserve">
+    <value>CreatedTime</value>
+  </data>
+  <data name="tabPage1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="BestFriendsTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="&gt;&gt;FullNameParameter.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="FacebookLoginButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="FriendBDAYLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="HometownParameter.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox4.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;HometownParameter.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="FetchBestFriendsPhotosButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 28</value>
+  </data>
+  <data name="&gt;&gt;FacebookLoginButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FriendsListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 157</value>
+  </data>
+  <data name="&gt;&gt;AgeParameter.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="FetchBestFriendsPhotosButton.Text" xml:space="preserve">
+    <value>Fetch 10 best friends pictures</value>
+  </data>
+  <data name="ExportToFileCompareTabButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;AgeParameter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn11.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="FriendsListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>951, 444</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>379, 21</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BirthdayParameter.Name" xml:space="preserve">
+    <value>BirthdayParameter</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.HeaderText" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 15</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FullNameParameter.Name" xml:space="preserve">
+    <value>FullNameParameter</value>
+  </data>
+  <data name="DateChoseListBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="messageLabel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;UserAgeLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FriendHomeTownLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox5.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="pickedFriendPictureBox.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBoxCompareTab.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="UserPictureBox4.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="&gt;&gt;ProfilePictureBox.Name" xml:space="preserve">
+    <value>ProfilePictureBox</value>
+  </data>
+  <data name="&gt;&gt;FriendBDAYLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="UserPictureBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;PostsListBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ProfilePictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="FriendAgeLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBoxCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBox.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="&gt;&gt;FacebookLoginButton.Name" xml:space="preserve">
+    <value>FacebookLoginButton</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox6.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Click on a name to see their profile picture</value>
+  </data>
+  <data name="&gt;&gt;UserBDAYLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ExportToFileCompareTabButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 9</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox4.Name" xml:space="preserve">
+    <value>UserPictureBox4</value>
+  </data>
+  <data name="CompareTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsInformationLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BestFriendsInformationLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold, Italic</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="&gt;&gt;UserHomeTownLabelCompareTab.Name" xml:space="preserve">
+    <value>UserHomeTownLabelCompareTab</value>
+  </data>
+  <data name="UserPictureBox4.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBoxCompareTab.Name" xml:space="preserve">
+    <value>FriendsListBoxCompareTab</value>
+  </data>
+  <data name="&gt;&gt;messageListBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;postDataGridView.Name" xml:space="preserve">
+    <value>postDataGridView</value>
+  </data>
+  <data name="UserAgeLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="FriendBDAYLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;FriendHomeTownLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="BirthdayParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 17</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 18</value>
+  </data>
+  <data name="&gt;&gt;messageLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn14.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn14</value>
+  </data>
+  <data name="&gt;&gt;messageTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pickedFriendPictureBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="postDataGridView.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;UserNameLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;pickedFriendPictureBox.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="BestFriendsInformationLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>391, 20</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBoxCompareTab.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;DateChoseListBox.Name" xml:space="preserve">
+    <value>DateChoseListBox</value>
+  </data>
+  <data name="FriendsListBoxCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 44</value>
+  </data>
+  <data name="FriendNameLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="&gt;&gt;PostsListBox.Name" xml:space="preserve">
+    <value>PostsListBox</value>
+  </data>
+  <data name="FacebookLoginButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 12</value>
+  </data>
+  <data name="UserPictureBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>115, 206</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox7.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="UserPictureBox3.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="AgeParameter.Text" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="UserAgeLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox1.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="GeneralDataTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 415</value>
+  </data>
+  <data name="CompareTab.Text" xml:space="preserve">
+    <value>Compare</value>
+  </data>
+  <data name="BestFriendsInformationLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="GeneralDataTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserPictureBoxCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 191</value>
+  </data>
+  <data name="UserPictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="UserPictureBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>639, 206</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="UserBDAYLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="BestFriendsInformationLabel.Text" xml:space="preserve">
+    <value>Click fetch and see who are your best friends</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Friends List</value>
+  </data>
+  <data name="AgeParameter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;GeneralDataTab.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="pickedFriendPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="CompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="&gt;&gt;ExportToFileCompareTabButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox2.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserPictureBox3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;FullNameParameter.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox6.Name" xml:space="preserve">
+    <value>UserPictureBox6</value>
+  </data>
+  <data name="&gt;&gt;postBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="messageLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="UserPictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;MonthCalendar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MonthCalendar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserBDAYLabelCompareTab.Name" xml:space="preserve">
+    <value>UserBDAYLabelCompareTab</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="PostsListBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="AgeParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 285</value>
+  </data>
+  <data name="PostsListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>326, 361</value>
+  </data>
+  <data name="&gt;&gt;postBindingSource.Name" xml:space="preserve">
+    <value>postBindingSource</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FriendHomeTownLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="&gt;&gt;messageListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AgeParameter.Name" xml:space="preserve">
+    <value>AgeParameter</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox3.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="FetchBestFriendsPhotosButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>322, 22</value>
+  </data>
+  <data name="&gt;&gt;CoverPhotoPictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;UserNameLabelCompareTab.Name" xml:space="preserve">
+    <value>UserNameLabelCompareTab</value>
+  </data>
+  <data name="PostsListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBoxCompareTab.Name" xml:space="preserve">
+    <value>UserPictureBoxCompareTab</value>
+  </data>
+  <data name="FriendBDAYLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="ExportToFileCompareTabButton.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsTab.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="UserPictureBox2.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="&gt;&gt;FriendBDAYLabelCompareTab.Name" xml:space="preserve">
+    <value>FriendBDAYLabelCompareTab</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GeneralDataTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox1.Name" xml:space="preserve">
+    <value>UserPictureBox1</value>
+  </data>
+  <data name="&gt;&gt;FriendAgeLabelCompareTab.Name" xml:space="preserve">
+    <value>FriendAgeLabelCompareTab</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn11.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Posts List</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Date Events</value>
+  </data>
+  <data name="&gt;&gt;FriendBDAYLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="messageListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>928, 100</value>
+  </data>
+  <data name="UserPictureBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="BestFriendsInformationLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>228, 367</value>
+  </data>
+  <data name="BestFriendsTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="UserNameLabelCompareTab.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="&gt;&gt;BirthdayParameter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;messageLabel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox4.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="RememberMeCheckbox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;FriendNameLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox2.Name" xml:space="preserve">
+    <value>UserPictureBox2</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn11.HeaderText" xml:space="preserve">
+    <value>UpdateTime</value>
+  </data>
+  <data name="tabPage1.Text" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="UserPictureBox5.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPage1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="UserPictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 56</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsInformationLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserBDAYLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;messageLabel1.Name" xml:space="preserve">
+    <value>messageLabel1</value>
+  </data>
+  <data name="&gt;&gt;UserBDAYLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;FacebookLoginButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox3.Name" xml:space="preserve">
+    <value>UserPictureBox3</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 415</value>
+  </data>
+  <data name="&gt;&gt;MonthCalendar.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="UserNameLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="PostsListBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="GeneralDataTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>948, 425</value>
+  </data>
+  <data name="&gt;&gt;messageListBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="FriendHomeTownLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="&gt;&gt;messageTextBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox5.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="ExportToFileCompareTabButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>79, 21</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="messageLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>397, 285</value>
+  </data>
+  <data name="FullNameParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 17</value>
+  </data>
+  <data name="MonthCalendar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 44</value>
+  </data>
+  <data name="&gt;&gt;UserBDAYLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;BirthdayParameter.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;tabPage1.Name" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="BestFriendsTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;HometownParameter.Name" xml:space="preserve">
+    <value>HometownParameter</value>
+  </data>
+  <data name="&gt;&gt;FriendHomeTownLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="UserPictureBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 206</value>
+  </data>
+  <data name="FriendAgeLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FriendAgeLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBox.Name" xml:space="preserve">
+    <value>FriendsListBox</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn14.Width" type="System.Int32, mscorlib">
+    <value>125</value>
+  </data>
+  <data name="messageListBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox6.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="&gt;&gt;CompareTab.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="UserNameLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="FriendsListBox.ItemHeight" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="RememberMeCheckbox.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="&gt;&gt;FetchBestFriendsPhotosButton.Name" xml:space="preserve">
+    <value>FetchBestFriendsPhotosButton</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PostsListBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>266, 44</value>
+  </data>
+  <data name="UserHomeTownLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;FriendPictureBoxCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox8.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="HometownParameter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="postDataGridView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="&gt;&gt;UserHomeTownLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="BestFriendsTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 415</value>
+  </data>
+  <data name="ProfilePictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="messageTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="DateChoseListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>297, 157</value>
+  </data>
+  <data name="&gt;&gt;UserNameLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox9.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AgeParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 17</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>943, 415</value>
+  </data>
+  <data name="FriendAgeLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;UserAgeLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ProfilePictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn1.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="FriendNameLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 253</value>
+  </data>
+  <data name="&gt;&gt;FriendNameLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox1.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PostsListBox.Parent" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox10.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="UserPictureBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FacebookLoginButton.Text" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="UserPictureBox10.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;UserHomeTownLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="UserHomeTownLabelCompareTab.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;UserAgeLabelCompareTab.Name" xml:space="preserve">
+    <value>UserAgeLabelCompareTab</value>
+  </data>
+  <data name="&gt;&gt;postDataGridView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox5.Name" xml:space="preserve">
+    <value>UserPictureBox5</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox8.Name" xml:space="preserve">
+    <value>UserPictureBox8</value>
+  </data>
+  <data name="FriendPictureBoxCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="UserPictureBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="FriendPictureBoxCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 191</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 15</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox2.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="&gt;&gt;FriendPictureBoxCompareTab.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="UserPictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="messageLabel1.Text" xml:space="preserve">
+    <value>Message:</value>
+  </data>
+  <data name="UserBDAYLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="UserPictureBox8.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="FacebookLoginButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 30</value>
+  </data>
+  <data name="&gt;&gt;FacebookLoginButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="FullNameParameter.Text" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
+  <data name="UserPictureBoxCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="UserAgeLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="&gt;&gt;FriendAgeLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;BirthdayParameter.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox9.Name" xml:space="preserve">
+    <value>UserPictureBox9</value>
+  </data>
+  <data name="UserPictureBox6.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="GeneralDataTab.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="BirthdayParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 322</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox3.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="messageLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="pickedFriendPictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FetchBestFriendsPhotosButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;FriendNameLabelCompareTab.Name" xml:space="preserve">
+    <value>FriendNameLabelCompareTab</value>
+  </data>
+  <data name="&gt;&gt;FriendNameLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserPictureBox8.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="UserPictureBox10.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FriendPictureBoxCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="messageLabel.Text" xml:space="preserve">
+    <value>Comments:</value>
+  </data>
+  <data name="ProfilePictureBox.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FriendBDAYLabelCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="BestFriendsTab.Text" xml:space="preserve">
+    <value>Best Friends</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsTab.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;commentsBindingSource.Name" xml:space="preserve">
+    <value>commentsBindingSource</value>
+  </data>
+  <data name="FriendsListBoxCompareTab.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="&gt;&gt;AgeParameter.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="FetchBestFriendsPhotosButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="HometownParameter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 17</value>
+  </data>
+  <data name="&gt;&gt;messageListBox.Name" xml:space="preserve">
+    <value>messageListBox</value>
+  </data>
+  <data name="FriendPictureBoxCompareTab.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FacebookForm</value>
+  </data>
+  <data name="UserPictureBox7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="&gt;&gt;messageLabel.Name" xml:space="preserve">
+    <value>messageLabel</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBoxCompareTab.Parent" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="UserPictureBox7.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="UserHomeTownLabelCompareTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>13, 17</value>
+  </data>
+  <data name="UserPictureBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FriendAgeLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 285</value>
+  </data>
+  <data name="ProfilePictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;MonthCalendar.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;messageLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="FullNameParameter.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="UserPictureBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="FriendBDAYLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 322</value>
+  </data>
+  <data name="UserNameLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="&gt;&gt;ProfilePictureBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="CoverPhotoPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="CoverPhotoPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>947, 164</value>
+  </data>
+  <data name="FriendPictureBoxCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>627, 44</value>
+  </data>
+  <data name="&gt;&gt;CompareTab.Name" xml:space="preserve">
+    <value>CompareTab</value>
+  </data>
+  <data name="DateChoseListBox.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;RememberMeCheckbox.Name" xml:space="preserve">
+    <value>RememberMeCheckbox</value>
+  </data>
+  <data name="messageLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 250</value>
+  </data>
+  <data name="FullNameParameter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>416, 253</value>
+  </data>
+  <data name="UserBDAYLabelCompareTab.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="UserPictureBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="UserAgeLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 285</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="UserPictureBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 144</value>
+  </data>
+  <data name="&gt;&gt;UserHomeTownLabelCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserNameLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-3, 204</value>
+  </data>
+  <data name="&gt;&gt;FetchBestFriendsPhotosButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FriendNameLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="messageTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>772, 22</value>
+  </data>
+  <data name="&gt;&gt;messageTextBox.Name" xml:space="preserve">
+    <value>messageTextBox</value>
+  </data>
+  <data name="&gt;&gt;FriendAgeLabelCompareTab.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="RememberMeCheckbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>122, 21</value>
+  </data>
+  <data name="UserNameLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 253</value>
+  </data>
+  <data name="ProfilePictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 113</value>
+  </data>
+  <data name="FriendsListBoxCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;RememberMeCheckbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserPictureBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>639, 56</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CoverPhotoPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="UserHomeTownLabelCompareTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>92, 362</value>
+  </data>
+  <data name="&gt;&gt;DateChoseListBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBoxCompareTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HometownParameter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;FriendsListBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="FriendsListBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9pt</value>
+  </data>
+  <data name="UserPictureBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>508, 206</value>
+  </data>
+  <data name="&gt;&gt;GeneralDataTab.Name" xml:space="preserve">
+    <value>GeneralDataTab</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="CoverPhotoPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-2, -2</value>
+  </data>
+  <data name="pickedFriendPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 170</value>
+  </data>
+  <data name="FriendHomeTownLabelCompareTab.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="RememberMeCheckbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 48</value>
+  </data>
+  <data name="&gt;&gt;UserPictureBox8.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <data name="&gt;&gt;messageLabel.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="messageLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 17</value>
+  </data>
+  <data name="&gt;&gt;ProfilePictureBox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="HometownParameter.Text" xml:space="preserve">
+    <value>Hometown</value>
+  </data>
+  <data name="messageLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;CompareTab.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn11.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn11</value>
+  </data>
+  <data name="&gt;&gt;messageLabel1.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;BestFriendsInformationLabel.Parent" xml:space="preserve">
+    <value>BestFriendsTab</value>
+  </data>
+  <metadata name="postBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="commentsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>408, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="messageLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <metadata name="messageLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
-  </metadata>
-  <metadata name="messageLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="commentsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>408, 17</value>
-  </metadata>
-  <metadata name="commentsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>408, 17</value>
-  </metadata>
-  <metadata name="postBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="postBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="messageLabel1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="postBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
   </metadata>
 </root>

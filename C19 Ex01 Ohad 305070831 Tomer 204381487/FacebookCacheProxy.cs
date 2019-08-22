@@ -8,66 +8,102 @@ using System.Threading;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 using System.Xml.Serialization;
-
+using System.Net.NetworkInformation;
+using System.Text;
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     public class FacebookCacheProxy
     {
         private static LoginResult m_LoginResult = null;
-        private static CachedUser m_CachedUser = new CachedUser();
+        private static CachedUser m_CachedUser = null;
 
-        public static CachedUser FacebookLogin()
+        public static User FacebookLogin(out CachedUser o_CachedUser)
         {
-            m_LoginResult = FacebookWrapper.FacebookService.Login("1450160541956417",
-                "public_profile",
-                "email",
-                "publish_to_groups",
-                "user_birthday",
-                "user_age_range",
-                "user_gender",
-                "user_link",
-                "user_tagged_places",
-                "user_videos",
-                "publish_to_groups",
-                "groups_access_member_info",
-                "user_friends",
-                "user_events",
-                "user_likes",
-                "user_location",
-                "user_photos",
-                "user_posts",
-                "user_hometown");
-
-            m_CachedUser.M_AccessToken = m_LoginResult.AccessToken;
-            m_CachedUser.M_CachedUser = m_LoginResult.LoggedInUser;
+            if (PingNetwork())
+            {
+                m_LoginResult = FacebookWrapper.FacebookService.Login(
+                    "1450160541956417",
+                    "public_profile",
+                    "email",
+                    "publish_to_groups",
+                    "user_birthday",
+                    "user_age_range",
+                    "user_gender",
+                    "user_link",
+                    "user_tagged_places",
+                    "user_videos",
+                    "publish_to_groups",
+                    "groups_access_member_info",
+                    "user_friends",
+                    "user_events",
+                    "user_likes",
+                    "user_location",
+                    "user_photos",
+                    "user_posts",
+                    "user_hometown");
+            }
 
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
+                m_CachedUser = new CachedUser();
+                m_CachedUser.InitializeCachedUser(m_LoginResult.LoggedInUser, m_LoginResult.AccessToken);
                 cacheUser();
             }
 
-            return m_CachedUser;
+            o_CachedUser = m_CachedUser;
+            return m_LoginResult.LoggedInUser;
         }
 
-        internal static CachedUser FacebookConnect(string i_UserAccessToken)
+        private static bool PingNetwork()
         {
-            m_LoginResult = FacebookService.Connect(i_UserAccessToken);
-            m_CachedUser.M_AccessToken = m_LoginResult.AccessToken;
-            m_CachedUser.M_CachedUser = m_LoginResult.LoggedInUser;
+            bool pingStatus = false;
 
-            if (string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            using (Ping p = new Ping())
+            {
+                string data = "Check Internet Connection";
+                byte[] buffer = Encoding.ASCII.GetBytes(data);
+                int timeout = 120;
+
+                try
+                {
+                    PingReply reply = p.Send(@"google.com", timeout, buffer);
+                    pingStatus = (reply.Status == IPStatus.Success);
+                }
+                catch (Exception)
+                {
+                    pingStatus = false;
+                }
+            }
+
+            return pingStatus;
+        }
+
+        internal static User FacebookConnect(string i_UserAccessToken, out CachedUser o_CachedUser)
+        {
+            if(PingNetwork())
+            {
+                m_LoginResult = FacebookService.Connect(i_UserAccessToken);
+
+                if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+                {
+                    m_CachedUser = new CachedUser();
+                    m_CachedUser.InitializeCachedUser(m_LoginResult.LoggedInUser, m_LoginResult.AccessToken);
+                    cacheUser();
+                }
+            }
+            else
             {
                 loadCachedUser();
             }
 
-            return m_CachedUser;
+            o_CachedUser = m_CachedUser;
+            return m_LoginResult.LoggedInUser;
         }
 
         private static void cacheUser()
         {
             using (Stream stream = new FileStream("User Cache.xml", FileMode.Create))
             {
-                bool i = typeof(CachedUser).IsSerializable; 
                 XmlSerializer serializer = new XmlSerializer(typeof(CachedUser));
                 serializer.Serialize(stream, m_CachedUser);
             }
