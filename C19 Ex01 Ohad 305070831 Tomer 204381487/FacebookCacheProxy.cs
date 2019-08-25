@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 using System.IO;
-using System.Threading;
-using FacebookWrapper.ObjectModel;
-using FacebookWrapper;
 using System.Xml.Serialization;
 using System.Net.NetworkInformation;
 using System.Text;
+using System.Net;
+using FacebookWrapper.ObjectModel;
+using FacebookWrapper;
+
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     public class FacebookCacheProxy
     {
-        private static LoginResult m_LoginResult = null;
+        private static LoginResult m_LoginResult = new LoginResult();
         private static CachedUser m_CachedUser = null;
 
         public static User FacebookLogin(out CachedUser o_CachedUser)
@@ -67,7 +64,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 try
                 {
                     PingReply reply = p.Send(@"google.com", timeout, buffer);
-                    pingStatus = (reply.Status == IPStatus.Success);
+                    pingStatus = reply.Status == IPStatus.Success;
                 }
                 catch (Exception)
                 {
@@ -107,6 +104,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                 XmlSerializer serializer = new XmlSerializer(typeof(CachedUser));
                 serializer.Serialize(stream, m_CachedUser);
             }
+
+            saveUserImage(m_CachedUser.UserData.UserProfileImage, "User Profile Image.jpg");
+            saveUserImage(m_CachedUser.UserData.UserCoverImage, "User Cover Image.jpg");
+        }
+
+        private static void saveUserImage(string i_ImageURL, string i_ImageName)
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFileAsync(new Uri(i_ImageURL), i_ImageName);
+            }
         }
 
         private static void loadCachedUser()
@@ -138,8 +146,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         private static void voidFunction()
         {
-            // this method is empty according to the Logout method needs.
+            //// this method is empty according to the Logout method needs.
         }
-
     }
 }

@@ -7,22 +7,17 @@ using System.IO;
 using System.Threading;
 using FacebookWrapper.ObjectModel;
 
-
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
     public partial class FacebookForm : Form
     {
         private const int k_BestFriendsLimit = 10;
         private FacebookFacade m_Facade = null;
-        //private User m_LoggedInUser;
-       // private Settings m_UserSettings;
-       // private LoginResult m_LoginResult;
 
         public FacebookForm()
         {
             try
             {
-                //m_UserSettings = Settings.LoadSettingsFromFile();
                 m_Facade = new FacebookFacade();
                 InitializeComponent();
                 this.RememberMeCheckbox.Checked = m_Facade.IsRememberMeChecked();
@@ -37,7 +32,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         {
             try
             {
-                //LoginToFacebook returns whether or not the login was successful.
+                ////LoginToFacebook returns whether or not the login was successful.
                 if (m_Facade.LoginToFacebook())
                 {
                     updateFormData();
@@ -76,18 +71,17 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             // this.UserHomeTownLabelCompareTab.Text = m_LoggedInUser.Hometown.Name;  Throwing an exception - data cannot be retrieved.
             this.CoverPhotoPictureBox.BackgroundImage = m_Facade.GetCoverImage();
             addFriendsToListBox();
-            //addPostsToListBox();
-
-            postBindingSource.DataSource = m_Facade.GetPosts();///////////////////////////////
+            addPostsToListBox(); // for the General Tab.
+            postBindingSource.DataSource = m_Facade.GetPosts(); // for the one way data binding - data can't be changed because theres no set property to change the value.
         }
 
-        //private void addPostsToListBox()
-        //{
-        //    foreach (Post post in m_LoggedInUser.Posts)
-        //    {
-        //        PostsListBox.Items.Add(string.Format("{0} {1}", post.Message, post.CreatedTime.Value.ToShortDateString()));
-        //    }
-        //}
+        private void addPostsToListBox()
+        {
+            foreach (Post post in m_Facade.GetPosts())
+            {
+                PostsListBox.Items.Add(string.Format("{0} {1}", post.Message, post.CreatedTime.Value.ToShortDateString()));
+            }
+        }
 
         private void addFriendsToListBox()
         {
@@ -157,44 +151,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        private void PostsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            fetchCommentsFromSelectedPost(sender);
-        }
-
-        private void fetchCommentsFromSelectedPost(object i_Sender)
-        {
-            List<Post> userPostList = m_Facade.GetPosts().ToList<Post>();
-            int postIndex = 0;
-            postIndex = getIndexOfPostInPostsList((i_Sender as ListBox).SelectedItem as string);
-            Post currentPost = userPostList[postIndex];
-            Form commentsForm = new Form();
-            ListBox postCommentsListBox = new ListBox();
-            postCommentsListBox.Anchor = AnchorStyles.Top | AnchorStyles.Right |
-                AnchorStyles.Bottom | AnchorStyles.Left;
-            commentsForm.ShowInTaskbar = false;
-            postCommentsListBox.Height = 450;
-            postCommentsListBox.Width = 250;
-            commentsForm.Height = 460;
-            commentsForm.Width = 260;
-            commentsForm.MinimumSize = new Size(260, 200);
-            commentsForm.Text = "Comments";
-            commentsForm.StartPosition = FormStartPosition.CenterScreen;
-
-            foreach (Comment comment in currentPost.Comments)
-            {
-                postCommentsListBox.Items.Add(comment.Message);
-            }
-
-            if (postCommentsListBox.Items.Count == 0)
-            {
-                postCommentsListBox.Items.Add("There are no comments on this post.");
-            }
-
-            commentsForm.Controls.Add(postCommentsListBox);
-            commentsForm.ShowDialog();
-        }
-
         private int getIndexOfPostInPostsList(string i_StringPost)
         {
             int o_OutputIndex = 0;
@@ -256,8 +212,8 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private void friendsListBox_SelectedIndexChangedGeneralMethod(object sender, EventArgs e, string i_StringNameOfTabToUpdate)
         {
             List<User> friendsList = null;
-            int postIndex = 0;
             User currentFriend = null;
+            int postIndex = 0;
 
             try
             {
@@ -300,8 +256,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             FriendPictureBoxCompareTab.Image = i_CurrentFriend.ImageLarge;
             FriendNameLabelCompareTab.Text = i_CurrentFriend.Name;
             FriendBDAYLabelCompareTab.Text = i_CurrentFriend.Birthday;
-
-            // FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name; Throwing an exception - data cannot be retrieved.
+            //// FriendHomeTownLabelCompareTab.Text = i_CurrentFriend.Hometown.Name; Throwing an exception - data cannot be retrieved
         }
 
         protected override void OnShown(EventArgs e)
@@ -315,10 +270,49 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
                     updateFormData();
                     this.FacebookLoginButton.Enabled = false;
                 }
+                else
+                {
+                    if (m_Facade.CashedUser != null)
+                    {
+                        updateFormDataFromCache();
+                    }
+                }
             }
             catch
             {
                 MessageBox.Show("There was a problem connecting to Facebook", "Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void updateFormDataFromCache()
+        {
+            MessageBox.Show("Going into offline mode. \n Some features will be disabled.", "Offline Mode");
+            DisableTabsOffline();
+            addCollectionToListBox(m_Facade.CashedUser.UserData.UserFriendsList, FriendsListBox);
+            addCollectionToListBox(m_Facade.CashedUser.UserData.UserPostsList, PostsListBox);
+            FacebookLoginButton.Enabled = false;
+            FriendsListBox.SelectedIndexChanged -= FriendsListBox_SelectedIndexChanged;
+            Text = m_Facade.CashedUser.UserData.UserName;
+            ProfilePictureBox.Image = new Bitmap("User Profile Image.jpg");
+            CoverPhotoPictureBox.Image = new Bitmap("User Cover Image.jpg");
+        }
+
+        private void addCollectionToListBox(List<string> i_CollectionToAdd, ListBox i_ListBox)
+        {
+            foreach(string str in i_CollectionToAdd)
+            {
+                i_ListBox.Items.Add(str);
+            }
+        }
+
+        private void DisableTabsOffline()
+        {
+            foreach (Control control in tabControl1.Controls)
+            {
+                if (control.Name != "GeneralDataTab")
+                {
+                    control.Enabled = false;
+                }
             }
         }
 

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Drawing;
 using FacebookWrapper.ObjectModel;
-using System.Xml.Serialization;
 
 namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 {
@@ -23,39 +19,92 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             m_UserCoverImageURL = i_UserCoverImage;
         }
 
-        public string UserName { get { return m_UserName; } set { m_UserName = value; } }
+        public string UserName
+        {
+            get
+            {
+                return m_UserName;
+            }
 
-        public string UserProfileImage { get { return m_UserProfileImageURL; } set { m_UserProfileImageURL = value; } }
+            set
+            {
+                m_UserName = value;
+            }
+        }
 
-        public string UserCoverImage { get { return m_UserCoverImageURL; } set { m_UserCoverImageURL = value; } }
+        public string UserProfileImage
+        {
+            get
+            {
+                return m_UserProfileImageURL;
+            }
 
-        public List<string> UserPostsList { get { return m_UserPostsList; } set { m_UserPostsList = value; } }
+            set
+            {
+                m_UserProfileImageURL = value;
+            }
+        }
 
-        public List<string> UserFreindsList { get { return m_UserFriendsList; } set { m_UserFriendsList = value; } }
+        public string UserCoverImage
+        {
+            get
+            {
+                return m_UserCoverImageURL;
+            }
+
+            set
+            {
+                m_UserCoverImageURL = value;
+            }
+        }
+
+        public List<string> UserPostsList
+        {
+            get
+            {
+                return m_UserPostsList;
+            }
+
+            set
+            {
+                m_UserPostsList = value;
+            }
+        }
+
+        public List<string> UserFriendsList
+        {
+            get
+            {
+                return m_UserFriendsList;
+            }
+
+            set
+            {
+                m_UserFriendsList = value;
+            }
+        }
 
         public void AddListsToUserData(FacebookObjectCollection<Post> i_UserPostList, FacebookObjectCollection<User> i_UserFriendsList)
         {
             generateStringList<Post>(i_UserPostList);
             generateStringList<User>(i_UserFriendsList);
-
         }
 
         private void generateStringList<T>(FacebookObjectCollection<T> i_CollectionToConvert)
-            where T: FacebookObject
+            where T : FacebookObject
         {
             List<string> newList = new List<string>();
 
-           if(i_CollectionToConvert.FirstOrDefault() is Post)
-           {
-                foreach(T post in i_CollectionToConvert)
+            if (i_CollectionToConvert.FirstOrDefault() is Post)
+            {
+                foreach (T post in i_CollectionToConvert)
                 {
                     newList.Add((post as Post).Message);
                 }
 
                 m_UserPostsList = newList;
-           }
-
-           else if(i_CollectionToConvert.FirstOrDefault() is User)
+            }
+            else if (i_CollectionToConvert.FirstOrDefault() is User)
             {
                 foreach(T user in i_CollectionToConvert)
                 {
@@ -64,7 +113,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
                 m_UserFriendsList = newList;
             }
-            
         }
     }
 }

@@ -11,7 +11,26 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private CachedUser m_CashedUser;
         private bool m_IsLoggedIn = false;
 
-        public bool IsLoggedIn { get { return m_IsLoggedIn; } set { m_IsLoggedIn = value; } }
+        public bool IsLoggedIn
+        {
+            get
+            {
+                return m_IsLoggedIn;
+            }
+
+            set
+            {
+                m_IsLoggedIn = value;
+            }
+        }
+
+        public CachedUser CashedUser
+        {
+            get
+            {
+                return m_CashedUser;
+            }
+        }
 
         public FacebookFacade()
         {
@@ -21,7 +40,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             {
                 ConnectToFacebook();
             }
-
         }
 
         public void UpdateRemeberMeSettings()
@@ -31,10 +49,16 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public void ConnectToFacebook()
         {
+            ////being send here only if internet is available.
+            IsLoggedIn = false;
             if (m_UserSettings.IsRememberMeChecked)
             {
                 m_LoggedInUser = FacebookCacheProxy.FacebookConnect(m_UserSettings.UserAccessToken, out m_CashedUser);
-                IsLoggedIn = true;
+
+                if (m_LoggedInUser != null)
+                {
+                    IsLoggedIn = true;
+                }
             }
         }
 
@@ -65,7 +89,6 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         public string GetBirthday()
         {
             return m_LoggedInUser.Birthday;
-
         }
 
         public string GetName()
@@ -80,7 +103,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
 
         public FacebookObjectCollection<Post> GetPosts()
         {
-            return m_LoggedInUser.Posts ;
+            return m_LoggedInUser.Posts;
         }
 
         public FacebookObjectCollection<Post> GetWallPosts()

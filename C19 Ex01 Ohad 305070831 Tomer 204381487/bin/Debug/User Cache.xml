@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <CachedUser xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <AccessToken>EAAUm6cZC4eUEBAGxKGIqi2V7FvSasFvfvNURv36jNDXl9r26Cpza4DRyxkcl0kTaPPZBUSyxNq3AQZAURDzZBaM4UwXZBFc1BRkZBPGE622FaZAVkQf9tFGU5AIqoEcluqIOirYMNOLZCzgBW7LfbYbXqUZCUPNNAnolQ0RnVDdDuggZDZD</AccessToken>
+  <AccessToken>EAAUm6cZC4eUEBAIiFq6H3NmAp8wE4DygHP8WpiRHyskZBT9AKAruPxNGAEhZBFYlIlktjrLVsriMjYQfRTDxr9kZBr5NK0ZCZBEkrH7xNmw0KZCPNbc9ZAemvy69RuowiITQ8lB9X4N7yyOJ35yw1JY4Fc4bMJqcIQAoK998MnSFNwZDZD</AccessToken>
   <UserData>
     <UserName>Desig Patter</UserName>
-    <UserProfileImage>https://graph.facebook.com/723643714431652/picture?type=normal&amp;access_token=EAAUm6cZC4eUEBAGxKGIqi2V7FvSasFvfvNURv36jNDXl9r26Cpza4DRyxkcl0kTaPPZBUSyxNq3AQZAURDzZBaM4UwXZBFc1BRkZBPGE622FaZAVkQf9tFGU5AIqoEcluqIOirYMNOLZCzgBW7LfbYbXqUZCUPNNAnolQ0RnVDdDuggZDZD</UserProfileImage>
-    <UserCoverImage>https://graph.facebook.com/1649444885184859/picture?type=normal&amp;access_token=EAAUm6cZC4eUEBAGxKGIqi2V7FvSasFvfvNURv36jNDXl9r26Cpza4DRyxkcl0kTaPPZBUSyxNq3AQZAURDzZBaM4UwXZBFc1BRkZBPGE622FaZAVkQf9tFGU5AIqoEcluqIOirYMNOLZCzgBW7LfbYbXqUZCUPNNAnolQ0RnVDdDuggZDZD</UserCoverImage>
+    <UserProfileImage>https://graph.facebook.com/723643714431652/picture?type=normal&amp;access_token=EAAUm6cZC4eUEBAIiFq6H3NmAp8wE4DygHP8WpiRHyskZBT9AKAruPxNGAEhZBFYlIlktjrLVsriMjYQfRTDxr9kZBr5NK0ZCZBEkrH7xNmw0KZCPNbc9ZAemvy69RuowiITQ8lB9X4N7yyOJ35yw1JY4Fc4bMJqcIQAoK998MnSFNwZDZD</UserProfileImage>
+    <UserCoverImage>https://graph.facebook.com/1649444885184859/picture?type=normal&amp;access_token=EAAUm6cZC4eUEBAIiFq6H3NmAp8wE4DygHP8WpiRHyskZBT9AKAruPxNGAEhZBFYlIlktjrLVsriMjYQfRTDxr9kZBr5NK0ZCZBEkrH7xNmw0KZCPNbc9ZAemvy69RuowiITQ8lB9X4N7yyOJ35yw1JY4Fc4bMJqcIQAoK998MnSFNwZDZD</UserCoverImage>
     <UserPostsList>
       <string>merci merci merci merci</string>
       <string>אני הרגתי את מופאסה</string>
@@ -34,6 +34,6 @@ I am not using StyleCop</string>
       <string>check</string>
       <string>What's on your mind? 26.7.18</string>
     </UserPostsList>
-    <UserFreindsList />
+    <UserFriendsList />
   </UserData>
 </CachedUser>

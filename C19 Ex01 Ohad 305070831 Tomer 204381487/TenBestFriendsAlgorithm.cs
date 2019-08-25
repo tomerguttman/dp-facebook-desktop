@@ -8,7 +8,9 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
         private static TenBestFriendsAlgorithm s_Instance = null;
         private static object s_LockObj = new object();
 
-        private TenBestFriendsAlgorithm() { }
+        private TenBestFriendsAlgorithm()
+        {
+        }
 
         public static TenBestFriendsAlgorithm Instance
         {
@@ -29,7 +31,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        public  List<UserRating> BestFriendsAlgorithm(FacebookFacade i_Facade)
+        public List<UserRating> BestFriendsAlgorithm(FacebookFacade i_Facade)
         {
             Dictionary<string, UserRating> friendsRatingDictionary = initializeUserRatingDictionary(i_Facade);
             calculateFriendsRatingAndUpdate(friendsRatingDictionary, i_Facade);
@@ -40,7 +42,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             return usersRatingSortedList;
         }
 
-        private  List<UserRating> convertDictionaryToList(Dictionary<string, UserRating> i_FriendsRatingDictionary)
+        private List<UserRating> convertDictionaryToList(Dictionary<string, UserRating> i_FriendsRatingDictionary)
         {
             List<UserRating> o_UsersRatingSortedList = new List<UserRating>();
             o_UsersRatingSortedList.Capacity = i_FriendsRatingDictionary.Count;
@@ -53,19 +55,19 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             return o_UsersRatingSortedList;
         }
 
-        private  void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary, FacebookFacade i_Facade)
+        private void calculateFriendsRatingAndUpdate(Dictionary<string, UserRating> i_FriendsRatingDictionary, FacebookFacade i_Facade)
         {
             updateFriendsRatingUsingLikes(i_FriendsRatingDictionary, i_Facade);
             updateFriendsRatingUsingComments(i_FriendsRatingDictionary, i_Facade);
         }
 
-        private  void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookFacade i_Facade)
+        private void updateFriendsRatingUsingLikes(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookFacade i_Facade)
         {
             updateUserRatingLikedPosts(io_FriendsRatingDictionary, i_Facade.GetWallPosts(), i_Facade.GetID());
             updateUserRatingLikedPosts(io_FriendsRatingDictionary, i_Facade.GetPosts(), i_Facade.GetID());
         }
 
-        private  void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, string i_UserId)
+        private void updateUserRatingLikedPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, string i_UserId)
         {
             foreach (Post post in i_Posts)
             {
@@ -81,13 +83,13 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        private  void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookFacade i_Facade)
+        private void updateFriendsRatingUsingComments(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookFacade i_Facade)
         {
             updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, i_Facade.GetWallPosts(), i_Facade.GetID());
             updateUserRatingCommentsOnPosts(io_FriendsRatingDictionary, i_Facade.GetPosts(), i_Facade.GetID());
         }
 
-        private  void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, string i_UserId)
+        private void updateUserRatingCommentsOnPosts(Dictionary<string, UserRating> io_FriendsRatingDictionary, FacebookObjectCollection<Post> i_Posts, string i_UserId)
         {
             foreach (Post post in i_Posts)
             {
@@ -103,7 +105,7 @@ namespace C19_Ex01_Ohad_305070831_Tomer_204381487
             }
         }
 
-        private  Dictionary<string, UserRating> initializeUserRatingDictionary(FacebookFacade i_Facade)
+        private Dictionary<string, UserRating> initializeUserRatingDictionary(FacebookFacade i_Facade)
         {
             Dictionary<string, UserRating> o_InitializedUserRatingDictionary = new Dictionary<string, UserRating>();
             FacebookObjectCollection<User> userFriends = i_Facade.GetFriends();

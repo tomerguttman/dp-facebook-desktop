@@ -74,7 +74,7 @@
             this.FriendsListBoxCompareTab = new System.Windows.Forms.ListBox();
             this.UserPictureBoxCompareTab = new System.Windows.Forms.PictureBox();
             this.FriendPictureBoxCompareTab = new System.Windows.Forms.PictureBox();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.PostsDataBinding = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.messageTextBox = new System.Windows.Forms.TextBox();
             this.postBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -107,7 +107,7 @@
             this.CompareTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBoxCompareTab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FriendPictureBoxCompareTab)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.PostsDataBinding.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commentsBindingSource)).BeginInit();
@@ -132,13 +132,12 @@
             this.tabControl1.Controls.Add(this.GeneralDataTab);
             this.tabControl1.Controls.Add(this.BestFriendsTab);
             this.tabControl1.Controls.Add(this.CompareTab);
-            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.PostsDataBinding);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             // 
             // GeneralDataTab
             // 
-            resources.ApplyResources(this.GeneralDataTab, "GeneralDataTab");
             this.GeneralDataTab.Controls.Add(this.label4);
             this.GeneralDataTab.Controls.Add(this.pickedFriendPictureBox);
             this.GeneralDataTab.Controls.Add(this.label3);
@@ -148,6 +147,7 @@
             this.GeneralDataTab.Controls.Add(this.FriendsListBox);
             this.GeneralDataTab.Controls.Add(this.PostsListBox);
             this.GeneralDataTab.Controls.Add(this.MonthCalendar);
+            resources.ApplyResources(this.GeneralDataTab, "GeneralDataTab");
             this.GeneralDataTab.Name = "GeneralDataTab";
             this.GeneralDataTab.UseVisualStyleBackColor = true;
             // 
@@ -196,7 +196,6 @@
             resources.ApplyResources(this.PostsListBox, "PostsListBox");
             this.PostsListBox.FormattingEnabled = true;
             this.PostsListBox.Name = "PostsListBox";
-            this.PostsListBox.SelectedIndexChanged += new System.EventHandler(this.PostsListBox_SelectedIndexChanged);
             // 
             // MonthCalendar
             // 
@@ -206,7 +205,6 @@
             // 
             // BestFriendsTab
             // 
-            resources.ApplyResources(this.BestFriendsTab, "BestFriendsTab");
             this.BestFriendsTab.Controls.Add(this.BestFriendsInformationLabel);
             this.BestFriendsTab.Controls.Add(this.FetchBestFriendsPhotosButton);
             this.BestFriendsTab.Controls.Add(this.UserPictureBox10);
@@ -219,6 +217,7 @@
             this.BestFriendsTab.Controls.Add(this.UserPictureBox3);
             this.BestFriendsTab.Controls.Add(this.UserPictureBox2);
             this.BestFriendsTab.Controls.Add(this.UserPictureBox1);
+            resources.ApplyResources(this.BestFriendsTab, "BestFriendsTab");
             this.BestFriendsTab.Name = "BestFriendsTab";
             this.BestFriendsTab.UseVisualStyleBackColor = true;
             // 
@@ -236,77 +235,76 @@
             // 
             // UserPictureBox10
             // 
-            resources.ApplyResources(this.UserPictureBox10, "UserPictureBox10");
             this.UserPictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox10, "UserPictureBox10");
             this.UserPictureBox10.Name = "UserPictureBox10";
             this.UserPictureBox10.TabStop = false;
             // 
             // UserPictureBox9
             // 
-            resources.ApplyResources(this.UserPictureBox9, "UserPictureBox9");
             this.UserPictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox9, "UserPictureBox9");
             this.UserPictureBox9.Name = "UserPictureBox9";
             this.UserPictureBox9.TabStop = false;
             // 
             // UserPictureBox8
             // 
-            resources.ApplyResources(this.UserPictureBox8, "UserPictureBox8");
             this.UserPictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox8, "UserPictureBox8");
             this.UserPictureBox8.Name = "UserPictureBox8";
             this.UserPictureBox8.TabStop = false;
             // 
             // UserPictureBox7
             // 
-            resources.ApplyResources(this.UserPictureBox7, "UserPictureBox7");
             this.UserPictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox7, "UserPictureBox7");
             this.UserPictureBox7.Name = "UserPictureBox7";
             this.UserPictureBox7.TabStop = false;
             // 
             // UserPictureBox6
             // 
-            resources.ApplyResources(this.UserPictureBox6, "UserPictureBox6");
             this.UserPictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox6, "UserPictureBox6");
             this.UserPictureBox6.Name = "UserPictureBox6";
             this.UserPictureBox6.TabStop = false;
             // 
             // UserPictureBox5
             // 
-            resources.ApplyResources(this.UserPictureBox5, "UserPictureBox5");
             this.UserPictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox5, "UserPictureBox5");
             this.UserPictureBox5.Name = "UserPictureBox5";
             this.UserPictureBox5.TabStop = false;
             // 
             // UserPictureBox4
             // 
-            resources.ApplyResources(this.UserPictureBox4, "UserPictureBox4");
             this.UserPictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox4, "UserPictureBox4");
             this.UserPictureBox4.Name = "UserPictureBox4";
             this.UserPictureBox4.TabStop = false;
             // 
             // UserPictureBox3
             // 
-            resources.ApplyResources(this.UserPictureBox3, "UserPictureBox3");
             this.UserPictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox3, "UserPictureBox3");
             this.UserPictureBox3.Name = "UserPictureBox3";
             this.UserPictureBox3.TabStop = false;
             // 
             // UserPictureBox2
             // 
-            resources.ApplyResources(this.UserPictureBox2, "UserPictureBox2");
             this.UserPictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox2, "UserPictureBox2");
             this.UserPictureBox2.Name = "UserPictureBox2";
             this.UserPictureBox2.TabStop = false;
             // 
             // UserPictureBox1
             // 
-            resources.ApplyResources(this.UserPictureBox1, "UserPictureBox1");
             this.UserPictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBox1, "UserPictureBox1");
             this.UserPictureBox1.Name = "UserPictureBox1";
             this.UserPictureBox1.TabStop = false;
             // 
             // CompareTab
             // 
-            resources.ApplyResources(this.CompareTab, "CompareTab");
             this.CompareTab.Controls.Add(this.ExportToFileCompareTabButton);
             this.CompareTab.Controls.Add(this.HometownParameter);
             this.CompareTab.Controls.Add(this.FriendHomeTownLabelCompareTab);
@@ -323,6 +321,7 @@
             this.CompareTab.Controls.Add(this.FriendsListBoxCompareTab);
             this.CompareTab.Controls.Add(this.UserPictureBoxCompareTab);
             this.CompareTab.Controls.Add(this.FriendPictureBoxCompareTab);
+            resources.ApplyResources(this.CompareTab, "CompareTab");
             this.CompareTab.Name = "CompareTab";
             this.CompareTab.UseVisualStyleBackColor = true;
             // 
@@ -402,40 +401,40 @@
             // 
             // UserPictureBoxCompareTab
             // 
-            resources.ApplyResources(this.UserPictureBoxCompareTab, "UserPictureBoxCompareTab");
             this.UserPictureBoxCompareTab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.UserPictureBoxCompareTab, "UserPictureBoxCompareTab");
             this.UserPictureBoxCompareTab.Name = "UserPictureBoxCompareTab";
             this.UserPictureBoxCompareTab.TabStop = false;
             // 
             // FriendPictureBoxCompareTab
             // 
-            resources.ApplyResources(this.FriendPictureBoxCompareTab, "FriendPictureBoxCompareTab");
             this.FriendPictureBoxCompareTab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.FriendPictureBoxCompareTab, "FriendPictureBoxCompareTab");
             this.FriendPictureBoxCompareTab.Name = "FriendPictureBoxCompareTab";
             this.FriendPictureBoxCompareTab.TabStop = false;
             // 
-            // tabPage1
+            // PostsDataBinding
             // 
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.PostsDataBinding, "PostsDataBinding");
+            this.PostsDataBinding.Controls.Add(this.panel1);
+            this.PostsDataBinding.Name = "PostsDataBinding";
+            this.PostsDataBinding.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.Color.Turquoise;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(messageLabel1);
             this.panel1.Controls.Add(this.messageTextBox);
             this.panel1.Controls.Add(messageLabel);
             this.panel1.Controls.Add(this.messageListBox);
             this.panel1.Controls.Add(this.postDataGridView);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // messageTextBox
             // 
+            this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true));
             resources.ApplyResources(this.messageTextBox, "messageTextBox");
-            this.messageTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.postBindingSource, "Message", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged, "No information given."));
             this.messageTextBox.Name = "messageTextBox";
             // 
             // postBindingSource
@@ -444,11 +443,11 @@
             // 
             // messageListBox
             // 
-            resources.ApplyResources(this.messageListBox, "messageListBox");
             this.messageListBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.commentsBindingSource, "Message", true));
             this.messageListBox.DataSource = this.commentsBindingSource;
             this.messageListBox.DisplayMember = "Message";
             this.messageListBox.FormattingEnabled = true;
+            resources.ApplyResources(this.messageListBox, "messageListBox");
             this.messageListBox.Name = "messageListBox";
             // 
             // commentsBindingSource
@@ -458,7 +457,6 @@
             // 
             // postDataGridView
             // 
-            resources.ApplyResources(this.postDataGridView, "postDataGridView");
             this.postDataGridView.AutoGenerateColumns = false;
             this.postDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.postDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -466,6 +464,7 @@
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn14});
             this.postDataGridView.DataSource = this.postBindingSource;
+            resources.ApplyResources(this.postDataGridView, "postDataGridView");
             this.postDataGridView.Name = "postDataGridView";
             this.postDataGridView.RowTemplate.Height = 24;
             // 
@@ -551,7 +550,7 @@
             this.CompareTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserPictureBoxCompareTab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FriendPictureBoxCompareTab)).EndInit();
-            this.tabPage1.ResumeLayout(false);
+            this.PostsDataBinding.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).EndInit();
@@ -611,15 +610,15 @@
         private System.Windows.Forms.Label AgeParameter;
         private System.Windows.Forms.Label FullNameParameter;
         private System.Windows.Forms.Button ExportToFileCompareTabButton;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage PostsDataBinding;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView postDataGridView;
         private System.Windows.Forms.BindingSource postBindingSource;
         private System.Windows.Forms.ListBox messageListBox;
         private System.Windows.Forms.BindingSource commentsBindingSource;
-        private System.Windows.Forms.TextBox messageTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.TextBox messageTextBox;
     }
 }
